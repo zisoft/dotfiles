@@ -1,8 +1,8 @@
 # Path to your dotfiles.
-export DOTFILES=$HOME/.dotfiles
+export DOTFILES=$HOME/Documents/dotfiles
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=/usr/local/sbin:$PATH
+export PATH=/usr/local/sbin:$PATH
 
 export GEM_HOME=~/.gems
 export PATH=$PATH:~/.gems/bin
