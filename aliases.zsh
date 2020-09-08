@@ -10,7 +10,7 @@ alias web_stop='brew services stop httpd && brew services stop mysql'
 alias mysql_start='brew services run mysql'
 alias mysql_stop='brew services stop mysql'
 
-alias brewup='brew update; brew upgrade; brew cask upgrade; brew cleanup; brew doctor'
+alias brewup='brew update; brew upgrade; brew upgrade --cask; brew cleanup; brew doctor'
 
 alias sync_pics='rsync -av --delete ~/Pictures/ /Volumes/Marios/Pictures'
 alias sync_pics_synnas='rsync -av --delete --delete-excluded --exclude-from ~/.oh-my-zsh/custom/rsync_excludes ~/Pictures/ -e ssh mario@synnas:/volume1/Mario/Pictures'
