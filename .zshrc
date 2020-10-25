@@ -1,3 +1,5 @@
+ZSH_DISABLE_COMPFIX=true
+
 # Path to your dotfiles.
 export DOTFILES=$HOME/Documents/dotfiles
 
