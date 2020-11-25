@@ -68,6 +68,8 @@ cask "dropbox"
 cask "font-fira-code-nerd-font"
 cask "font-source-code-pro"
 cask "google-chrome"
+cask "gswitch"
+cask "keepingyouawake"
 cask "keyboard-maestro"
 cask "launchcontrol"
 cask "marked"
@@ -92,6 +94,7 @@ mas "Affinity Photo", id: 824183456
 mas "AlignmentForXcode", id: 1168397789
 mas "Amphetamine", id: 937984704
 mas "Channel Edit for LG TVs", id: 1230066515
+mas "Drafts", id: 1435957248
 mas "GarageBand", id: 682658836
 mas "iMovie", id: 408981434
 mas "info.lazar.xliff-tool", id: 1074282695
