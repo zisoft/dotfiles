@@ -18,7 +18,7 @@ brew "carthage"
 brew "cask"
 brew "composer"
 brew "coreutils"
-brew "curl-openssl"
+brew "curl"
 brew "dav1d"
 brew "docbook"
 brew "docbook-xsl"
@@ -67,7 +67,6 @@ cask "db-browser-for-sqlite"
 cask "dropbox"
 cask "font-fira-code-nerd-font"
 cask "font-source-code-pro"
-cask "google-chrome"
 cask "gswitch"
 cask "keepingyouawake"
 cask "keyboard-maestro"
@@ -83,12 +82,13 @@ cask "quicklook-csv"
 cask "quicklook-json"
 cask "sketchup"
 cask "skype"
+cask "sourcetree"
 cask "spotify"
 cask "teamviewer"
 cask "visual-studio-code"
 cask "vlc"
 cask "whatsapp"
-mas "Adblock Plus", id: 1432731683
+mas "AdGuard for Safari", id: 1440147259
 mas "Affinity Designer", id: 824171161
 mas "Affinity Photo", id: 824183456
 mas "AlignmentForXcode", id: 1168397789
@@ -104,4 +104,5 @@ mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Realm Browser", id: 1007457278
 mas "TaskPaper", id: 1090940630
+mas "ToothFairy", id: 1191449274
 mas "Xcode", id: 497799835
