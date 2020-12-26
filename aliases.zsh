@@ -1,6 +1,8 @@
 # Aliases
 alias la='ls -alh'
 
+alias ..='cd ..'
+
 alias web='cd ~/Sites/october/themes/zisoft'
 alias ios='cd ~/Documents/Software/iOS'
 
