@@ -21,6 +21,9 @@ brew bundle
 rm -rf $HOME/.zshrc
 ln -s $HOME/Documents/dotfiles/.zshrc $HOME/.zshrc
 
+# Copy httpd.conf
+mv /usr/local/etc/httpd/httpd.conf /usr/local/etc/httpd/httpd.conf.org
+cp $HOME/Documents/dotfiles/httpd.conf /usr/local/etc/httpd
 
 
 # Set macOS preferences

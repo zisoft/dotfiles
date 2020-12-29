@@ -40,7 +40,7 @@ brew "libsodium"
 brew "libzip"
 brew "mackup"
 brew "mas"
-brew "mysql"
+brew "mysql", restart_service: true
 brew "node"
 brew "oniguruma"
 brew "php@7.3", link: true
