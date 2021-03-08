@@ -5,6 +5,7 @@ alias ..='cd ..'
 
 alias web='cd ~/Sites/october/themes/zisoft'
 alias ios='cd ~/Documents/Software/iOS'
+alias macos='cd ~/Documents/Software/MacOS'
 
 alias web_start='brew services run httpd && brew services run mysql'
 alias web_stop='brew services stop httpd && brew services stop mysql'
