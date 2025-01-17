@@ -1,0 +1,23 @@
+[user]
+	name = Mario Zimmermann
+	email = mail@zisoft.de
+[color]
+	ui = true
+[alias]
+        last = log -1 HEAD
+        graph = log --decorate --graph --oneline
+        ls = log --oneline
+        ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+[credential]
+	helper = osxkeychain
+[core]
+	excludesfile = /Users/mario/.gitignore_global
+	editor = code --wait
+[init]
+	defaultBranch = develop
+[pager]
+	branch = false
+[diff]
+    tool = default-difftool
+[difftool "default-difftool"]
+    cmd = code --wait --diff $LOCAL $REMOTE
