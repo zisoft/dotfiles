@@ -98,14 +98,13 @@ brew "nghttp2"
 brew "ninja"
 brew "osm-gps-map"
 brew "perl"
-brew "php@8.1", link: true
+brew "php@8.1"
 brew "po4a"
 brew "portmidi"
 brew "pugixml"
 brew "pygobject3"
 brew "ruby-build"
 brew "shellcheck"
-brew "starship"
 brew "stow"
 brew "unzip"
 brew "wget"
@@ -115,6 +114,7 @@ cask "bitwarden"
 cask "calibre"
 cask "db-browser-for-sqlite"
 cask "dbeaver-community"
+cask "font-jetbrains-mono-nerd-font"
 cask "gimp"
 cask "inkscape"
 cask "insomnia"
@@ -130,6 +130,21 @@ cask "slack"
 cask "suspicious-package"
 cask "teamviewer"
 cask "vmware-fusion"
+mas "AdGuard for Safari", id: 1440147259
+mas "Affinity Designer 2", id: 1616831348
+mas "Affinity Photo 2", id: 1616822987
+mas "AlignmentForXcode", id: 1168397789
+mas "Amphetamine", id: 937984704
+mas "Bitwarden", id: 1352778147
+mas "Channel Edit for LG TVs", id: 1230066515
+mas "iMovie", id: 408981434
+mas "iXLIFF", id: 944658897
+mas "Keynote", id: 409183694
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "TaskPaper", id: 1090940630
+mas "Xcode", id: 497799835
+mas "XLIFFTool", id: 1074282695
 vscode "aaron-bond.better-comments"
 vscode "alefragnani.bookmarks"
 vscode "alefragnani.project-manager"
