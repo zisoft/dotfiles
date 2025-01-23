@@ -24,6 +24,8 @@ zinit cdreplay -q
 # Keybindings
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
+bindkey '^[[A' history-search-backward
+bindkey '^[[B' history-search-forward
 
 # History
 HISTSIZE=5000
@@ -43,10 +45,12 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:cd:*' fzf-preview 'ls --color $realpath'
 
 # shell integrations
 eval "$(/usr/local/bin/brew shellenv)"
 eval "$(fzf --zsh)"
+eval "$(zoxide init --cmd cd zsh)"
 
 # oh-my-posh prompt
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/mario.toml)"
@@ -63,6 +67,8 @@ export LANG=en_US.UTF-8
 
 # Secret things
 source $HOME/.secrets
+
+export EDITOR=nvim
 
 # Aliases
 alias ls='ls --color'
