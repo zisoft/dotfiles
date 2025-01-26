@@ -1,7 +1,15 @@
-vim.cmd("set expandtab")
-vim.cmd("set tabstop=2")
-vim.cmd("set softtabstop=2")
-vim.cmd("set shiftwidth=2")
-vim.cmd("set number")
+local opts = {
+  expandtab = true,
+  tabstop = 2,
+  softtabstop = 2,
+  shiftwidth = 2,
+  number = true
+}
+
+-- Set options from table
+for opt, val in pairs(opts) do
+  vim.o[opt] = val
+end
+
 vim.g.mapleader = " "
 

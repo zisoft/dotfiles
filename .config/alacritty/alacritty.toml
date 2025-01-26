@@ -3,7 +3,7 @@ general.import = [
 ]
 
 [window]
-  dimensions = { columns = 160, lines = 55 }
+  dimensions = { columns = 130, lines = 55 }
   padding = { x = 5, y = 5 }
   decorations = "buttonless"
 
