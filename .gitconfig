@@ -12,7 +12,8 @@
 	helper = osxkeychain
 [core]
 	excludesfile = /Users/mario/.gitignore_global
-	editor = code --wait
+  # editor = code --wait
+	editor = nvim
 [init]
 	defaultBranch = develop
 [pager]
