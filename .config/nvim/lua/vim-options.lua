@@ -3,7 +3,9 @@ local opts = {
   tabstop = 2,
   softtabstop = 2,
   shiftwidth = 2,
-  number = true
+  number = true,
+  ignorecase = true,
+  smartcase = true,
 }
 
 -- Set options from table

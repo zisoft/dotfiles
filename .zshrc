@@ -77,6 +77,8 @@ alias la='ls -alh'
 
 alias ..='cd ..'
 
+alias vi='nvim'
+
 alias brewup='brew update; brew upgrade; brew upgrade --cask; brew cleanup; brew doctor'
 
 alias sync_pics_zisoft='rsync -r -t -v --delete --delete-excluded --exclude-from='/Users/mario/.rsync_excludes' ~/workspace/october2/storage/app/media/ -e ssh zisoft.de:/www/htdocs/w0107c10/october2/storage/app/media/'
