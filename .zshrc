@@ -61,6 +61,10 @@ if [ -d "/usr/local/opt/ruby/bin" ]; then
   export PATH=`gem environment gemdir`/bin:$PATH
 fi
 
+# tmuxifier
+export PATH=$PATH/:$HOME/.tmux/plugins/tmuxifier/bin
+eval "$(tmuxifier init -)"
+
 # Language settings
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
