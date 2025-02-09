@@ -22,6 +22,7 @@ autoload -Uz compinit && compinit
 zinit cdreplay -q
 
 # Keybindings
+bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[[A' history-search-backward
