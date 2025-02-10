@@ -21,11 +21,4 @@ return {
 			"document_symbols",
 		},
 	},
-
-	keys = {
-		{ "<C-n>", ":Neotree filesystem reveal left<CR>", desc = "Neotree" },
-		{ "<leader>tc", ":Neotree close<CR>", desc = "Neotree" },
-		{ "<leader>tb", ":Neotree buffers<CR>", desc = "Neotree" },
-		{ "<leader>to", ":Neotree document_symbols<CR>", desc = "Neotree" },
-	},
 }

@@ -6,7 +6,6 @@ return {
 
     config = function()
       local telescope = require("telescope")
-      local builtin = require("telescope.builtin")
 
       telescope.setup({
         defaults = {
@@ -31,10 +30,6 @@ return {
           },
         },
       })
-
-      vim.keymap.set("n", "<C-p>", builtin.find_files, {})
-      vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
-      vim.keymap.set("n", "<leader>ls", builtin.buffers, {})
     end,
   },
   {
