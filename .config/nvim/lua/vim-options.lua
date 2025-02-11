@@ -9,6 +9,7 @@ vim.o.smartcase = true
 vim.o.filetype = "on"
 vim.o.cursorline = true
 vim.o.autoread = true
+vim.o.signcolumn = "yes:1"
 
 vim.cmd([[ set noswapfile ]])
 vim.cmd([[ set termguicolors ]])
