@@ -11,7 +11,7 @@ return {
             "filename",
             path = 4,
           },
-          "buffers",
+          -- "buffers",
         },
         lualine_x = {
           "encoding",
