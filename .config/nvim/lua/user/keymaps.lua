@@ -7,6 +7,7 @@ vim.keymap.set("n", "<C-p>", builtin.find_files, { desc = "Telescope find files"
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
 vim.keymap.set("n", "<leader>ls", builtin.buffers, { desc = "Telescope buffers" })
 vim.keymap.set("n", "<leader>bm", builtin.marks, { desc = "Telescope marks" })
+vim.keymap.set("n", "<leader>?", builtin.keymaps, { desc = "Telescope keymaps" })
 
 -- gitsigns
 vim.keymap.set("n", "<leader>gp", "<cmd>Gitsigns preview_hunk<CR>", { desc = "Gitsigns preview hunk" })
@@ -19,22 +20,22 @@ vim.keymap.set("n", "<leader>tb", "<cmd>Neotree buffers<CR>", { desc = "Neotree 
 vim.keymap.set("n", "<leader>to", "<cmd>Neotree document_symbols<CR>", { desc = "Neotree document symbols" })
 
 -- completions
-local ls = require("luasnip")
-vim.keymap.set({ "i" }, "<C-K>", function()
-	ls.expand()
-end, { silent = true, desc = "Snippet expand" })
-vim.keymap.set({ "i", "s" }, "<C-L>", function()
-	ls.jump(1)
-end, { silent = true, desc = "Snippet next" })
-vim.keymap.set({ "i", "s" }, "<C-J>", function()
-	ls.jump(-1)
-end, { silent = true, desc = "Snippet previous" })
-
-vim.keymap.set({ "i", "s" }, "<C-E>", function()
-	if ls.choice_active() then
-		ls.change_choice(1)
-	end
-end, { silent = true, desc = "Snippet choice" })
+-- local ls = require("luasnip")
+-- vim.keymap.set({ "i" }, "<C-K>", function()
+-- 	ls.expand()
+-- end, { silent = true, desc = "Snippet expand" })
+-- vim.keymap.set({ "i", "s" }, "<C-L>", function()
+-- 	ls.jump(1)
+-- end, { silent = true, desc = "Snippet next" })
+-- vim.keymap.set({ "i", "s" }, "<C-J>", function()
+-- 	ls.jump(-1)
+-- end, { silent = true, desc = "Snippet previous" })
+--
+-- vim.keymap.set({ "i", "s" }, "<C-E>", function()
+-- 	if ls.choice_active() then
+-- 		ls.change_choice(1)
+-- 	end
+-- end, { silent = true, desc = "Snippet choice" })
 
 -- lsp
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Lsp: lsp Hover" })
