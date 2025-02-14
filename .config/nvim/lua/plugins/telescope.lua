@@ -13,8 +13,11 @@ return {
           no_ignore = true,
           file_ignore_patterns = {
             "node_modules",
+            "build",
+            "src/external",
             ".git/",
             ".DS_Store",
+            "po/",
           },
         },
 
@@ -22,11 +25,6 @@ return {
           find_files = {
             hidden = true,
             no_ignore = true,
-            file_ignore_patterns = {
-              "node_modules",
-              ".git/",
-              ".DS_Store",
-            },
           },
         },
       })
