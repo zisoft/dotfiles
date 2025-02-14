@@ -3,9 +3,12 @@ return {
   config = function()
     require("lualine").setup({
       options = {
-        theme = "dracula",
+        theme = "catppuccin",
       },
       sections = {
+        lualine_b = {
+          "branch"
+        },
         lualine_c = {
           {
             "filename",

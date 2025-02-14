@@ -14,4 +14,3 @@ vim.o.signcolumn = "yes:1"
 vim.cmd([[ set noswapfile ]])
 vim.cmd([[ set termguicolors ]])
 
-vim.g.mapleader = " "
