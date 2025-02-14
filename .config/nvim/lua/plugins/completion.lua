@@ -1,12 +1,19 @@
 return {
   "saghen/blink.cmp",
-  dependencies = 'rafamadriz/friendly-snippets',
-  version = '*',
+  dependencies = "rafamadriz/friendly-snippets",
+  version = "*",
+  lazy = false,
   opts = {
-    signature = { enabled = true },
-    keymap = { preset = 'enter' },
+    keymap = {
+      preset = "default",
+      cmdline = {
+        preset = "super-tab",
+      },
+    },
     appearance = {
       use_nvim_cmp_as_default = true,
+      nerd_font_variant = "mono",
     },
+    signature = { enabled = true },
   },
 }
