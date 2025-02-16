@@ -16,6 +16,7 @@ return {
             "build",
             "src/external",
             ".git/",
+            ".cache/",
             ".DS_Store",
             "po/",
           },
