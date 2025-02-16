@@ -6,7 +6,9 @@ return {
   opts = {
     keymap = {
       preset = "default",
-      cmdline = {
+    },
+    cmdline = {
+      keymap = {
         preset = "super-tab",
       },
     },

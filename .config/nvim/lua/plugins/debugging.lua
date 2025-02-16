@@ -1,17 +1,14 @@
 return {
-	"rcarriga/nvim-dap-ui",
+	"mfussenegger/nvim-dap",
 	dependencies = {
-		"mfussenegger/nvim-dap",
+		"rcarriga/nvim-dap-ui",
+		"theHamsta/nvim-dap-virtual-text",
 		"nvim-neotest/nvim-nio",
-		"folke/lazydev.nvim",
 	},
 
 	config = function()
 		local dap = require("dap")
 		local dapui = require("dapui")
-		-- require("lazydev").setup({
-		--   library = { "nvim-dap-ui" },
-		-- })
 
 		dapui.setup({
 			layouts = {
@@ -34,6 +31,11 @@ return {
 					size = 10,
 				},
 			},
+		})
+
+		require("nvim-dap-virtual-text").setup({
+			highlight_changed_variables = true,
+			show_stop_reason = true,
 		})
 
 		dap.adapters.cppdbg = {
