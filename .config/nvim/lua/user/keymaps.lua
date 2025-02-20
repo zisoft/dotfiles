@@ -1,14 +1,15 @@
 -- general
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear hilight on search with <Esc> in normal mode"})
-vim.keymap.set("t", "<Esc>", "<C-\\><C-N>", { desc = "Exit terminal mode" })
+-- vim.keymap.set("t", "<Esc>", "<C-\\><C-N>", { desc = "Exit terminal mode" })
 
 -- telescope
 local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<C-p>", builtin.find_files, { desc = "Telescope [f]ind [f]iles" })
+vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope [f]ind [f]iles" })
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope [l]ive [g]rep" })
 vim.keymap.set("n", "<leader>ls", builtin.buffers, { desc = "Telescope [l]ist [b]uffers" })
 vim.keymap.set("n", "<leader>bm", builtin.marks, { desc = "Telescope ([b]ook) [m]arks" })
-vim.keymap.set("n", "<leader>?", builtin.keymaps, { desc = "Telescope keymaps" })
+vim.keymap.set("n", "<leader>k?", builtin.keymaps, { desc = "Telescope keymaps" })
+vim.keymap.set("n", "<leader>?", builtin.help_tags, { desc = "Telescope help" })
 
 -- gitsigns
 vim.keymap.set("n", "<leader>gp", "<cmd>Gitsigns preview_hunk<CR>", { desc = "Gitsigns [p]review hunk" })
@@ -44,15 +45,17 @@ vim.keymap.set("n", "<C-i>", dapui.eval, { desc = "Debugger eval variable" })
 vim.keymap.set("n", "<leader>cd", dapui.close, { desc = "Debugger close debugger" })
 
 -- tmux navigator
-vim.keymap.set("n", "<c-h>", "<cmd>TmuxNavigateLeft<cr>", { desc = "Tmux NavigateLeft" })
-vim.keymap.set("n", "<c-j>", "<cmd>TmuxNavigateDown<cr>", { desc = "Tmux NavigateRight" })
-vim.keymap.set("n", "<c-k>", "<cmd>TmuxNavigateUp<cr>", { desc = "Tmux NavigateUp" })
-vim.keymap.set("n", "<c-l>", "<cmd>TmuxNavigateRight<cr>", { desc = "Tmux NavigateRight" })
-vim.keymap.set("n", "<c-\\>", "<cmd>TmuxNavigatePrevious<cr>", { desc = "Tmux pNavigatePrevious" })
+vim.keymap.set("n", "<c-h>", "<cmd>TmuxNavigateLeft<CR>", { desc = "Tmux NavigateLeft" })
+vim.keymap.set("n", "<c-j>", "<cmd>TmuxNavigateDown<CR>", { desc = "Tmux NavigateRight" })
+vim.keymap.set("n", "<c-k>", "<cmd>TmuxNavigateUp<CR>", { desc = "Tmux NavigateUp" })
+vim.keymap.set("n", "<c-l>", "<cmd>TmuxNavigateRight<CR>", { desc = "Tmux NavigateRight" })
+vim.keymap.set("n", "<c-\\>", "<cmd>TmuxNavigatePrevious<CR>", { desc = "Tmux pNavigatePrevious" })
 
 -- LazyGit
-vim.keymap.set("n", "<leader>lg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
+vim.keymap.set("n", "<leader>lg", "<cmd>LazyGit<CR>", { desc = "LazyGit" })
 
 -- Oil
 vim.keymap.set("n", "-", "<cmd>Oil<CR>", { desc = "Oil: Open parent directory" })
 
+-- todo-comments
+vim.keymap.set("n", "<leader>td", "<cmd>TodoTelescope<CR>", { desc = "Show Todo comments" })
