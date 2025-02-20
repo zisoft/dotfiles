@@ -20,5 +20,7 @@
 	branch = false
 [diff]
     tool = default-difftool
-[difftool "default-difftool"]
-    cmd = code --wait --diff $LOCAL $REMOTE
+[merge]
+	tool = nvimdiff2
+[mergetool]
+	keepBackup = false
