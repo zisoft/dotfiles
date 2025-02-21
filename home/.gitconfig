@@ -21,6 +21,6 @@
 [diff]
     tool = default-difftool
 [merge]
-	tool = nvimdiff2
+	tool = opendiff
 [mergetool]
 	keepBackup = false

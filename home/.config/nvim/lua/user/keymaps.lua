@@ -12,8 +12,10 @@ vim.keymap.set("n", "<leader>k?", builtin.keymaps, { desc = "Telescope keymaps" 
 vim.keymap.set("n", "<leader>?", builtin.help_tags, { desc = "Telescope help" })
 
 -- gitsigns
-vim.keymap.set("n", "<leader>gp", "<cmd>Gitsigns preview_hunk<CR>", { desc = "Gitsigns [p]review hunk" })
-vim.keymap.set("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", { desc = "Gitsigns [r]eset hunk" })
+vim.keymap.set("n", "<leader>gp", "<cmd>Gitsigns preview_hunk<CR>", { desc = "Gitsigns preview hunk" })
+vim.keymap.set("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", { desc = "Gitsigns reset hunk" })
+vim.keymap.set("n", "<leader>hp", "<cmd>Gitsigns prev_hunk<CR>", { desc = "Gitsigns previous hunk" })
+vim.keymap.set("n", "<leader>hn", "<cmd>Gitsigns next_hunk<CR>", { desc = "Gitsigns next hunk" })
 
 -- neotree
 vim.keymap.set("n", "<leader>tf", "<cmd>Neotree filesystem reveal left<CR>", { desc = "Neo[t]ree [f]ilesystem" })

@@ -5,7 +5,7 @@ return {
   lazy = false,
   opts = {
     keymap = {
-      preset = "default",
+      preset = "super-tab",
     },
     cmdline = {
       keymap = {
