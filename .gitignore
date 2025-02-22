@@ -1,2 +1,3 @@
 *.bak
 home/.config/darktable/
+ApplicationSupport/lazygit/state.yml

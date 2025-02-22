@@ -8,12 +8,12 @@ vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope [f]ind
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope [l]ive [g]rep" })
 vim.keymap.set("n", "<leader>ls", builtin.buffers, { desc = "Telescope [l]ist [b]uffers" })
 vim.keymap.set("n", "<leader>bm", builtin.marks, { desc = "Telescope ([b]ook) [m]arks" })
-vim.keymap.set("n", "<leader>k?", builtin.keymaps, { desc = "Telescope keymaps" })
-vim.keymap.set("n", "<leader>?", builtin.help_tags, { desc = "Telescope help" })
+vim.keymap.set("n", "<leader>?", builtin.keymaps, { desc = "Telescope keymaps" })
 
 -- gitsigns
 vim.keymap.set("n", "<leader>gp", "<cmd>Gitsigns preview_hunk<CR>", { desc = "Gitsigns preview hunk" })
 vim.keymap.set("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", { desc = "Gitsigns reset hunk" })
+vim.keymap.set("n", "<leader>gb", "<cmd>Gitsigns blame<CR>", { desc = "Gitsigns blame" })
 vim.keymap.set("n", "<leader>hp", "<cmd>Gitsigns prev_hunk<CR>", { desc = "Gitsigns previous hunk" })
 vim.keymap.set("n", "<leader>hn", "<cmd>Gitsigns next_hunk<CR>", { desc = "Gitsigns next hunk" })
 
