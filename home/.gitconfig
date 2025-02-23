@@ -15,12 +15,12 @@
   # editor = code --wait
 	editor = nvim
 [init]
-	defaultBranch = develop
+	defaultBranch = master
 [pager]
 	branch = false
 [diff]
     tool = default-difftool
 [merge]
-	tool = opendiff
+	tool = nvimdiff2
 [mergetool]
 	keepBackup = false

@@ -8,6 +8,7 @@ general.import = [
 [window]
   dimensions = { columns = 130, lines = 50 }
   padding = { x = 5, y = 5 }
+  option_as_alt = "OnlyLeft"
 
 [scrolling]
   history = 1000

@@ -8,6 +8,7 @@ vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope [f]ind
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope [l]ive [g]rep" })
 vim.keymap.set("n", "<leader>ls", builtin.buffers, { desc = "Telescope [l]ist [b]uffers" })
 vim.keymap.set("n", "<leader>bm", builtin.marks, { desc = "Telescope ([b]ook) [m]arks" })
+vim.keymap.set("n", "<leader>ds", builtin.lsp_document_symbols, { desc = "Telescope document symbols" })
 vim.keymap.set("n", "<leader>?", builtin.keymaps, { desc = "Telescope keymaps" })
 
 -- gitsigns
