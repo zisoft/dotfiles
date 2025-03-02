@@ -34,7 +34,7 @@ vim.keymap.set("n", "<F11>", dap.step_into, { desc = "Debugger step into" })
 vim.keymap.set("n", "<F12>", dap.step_out, { desc = "Debugger step out" })
 vim.keymap.set("n", "<Leader>b", dap.toggle_breakpoint, { desc = "Debugger toggle breakpoint" })
 vim.keymap.set("n", "<leader>lp", function()
-	dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
+  dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
 end, { desc = "Debugger set logpoint" })
 
 local dapui = require("dapui")
