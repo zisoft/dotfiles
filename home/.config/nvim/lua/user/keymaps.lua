@@ -4,10 +4,11 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear hilight on s
 
 -- telescope
 local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope [f]ind [f]iles" })
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope [l]ive [g]rep" })
-vim.keymap.set("n", "<leader>ls", builtin.buffers, { desc = "Telescope [l]ist [b]uffers" })
-vim.keymap.set("n", "<leader>bm", builtin.marks, { desc = "Telescope ([b]ook) [m]arks" })
+vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
+vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
+vim.keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "Telescope find word under cursor" })
+vim.keymap.set("n", "<leader>ls", builtin.buffers, { desc = "Telescope list buffers" })
+vim.keymap.set("n", "<leader>bm", builtin.marks, { desc = "Telescope (book) marks" })
 vim.keymap.set("n", "<leader>ds", builtin.lsp_document_symbols, { desc = "Telescope document symbols" })
 vim.keymap.set("n", "<leader>?", builtin.keymaps, { desc = "Telescope keymaps" })
 
@@ -17,13 +18,6 @@ vim.keymap.set("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", { desc = "Gits
 vim.keymap.set("n", "<leader>gb", "<cmd>Gitsigns blame<CR>", { desc = "Gitsigns blame" })
 vim.keymap.set("n", "<leader>hp", "<cmd>Gitsigns prev_hunk<CR>", { desc = "Gitsigns previous hunk" })
 vim.keymap.set("n", "<leader>hn", "<cmd>Gitsigns next_hunk<CR>", { desc = "Gitsigns next hunk" })
-
--- neotree
-vim.keymap.set("n", "<leader>tf", "<cmd>Neotree filesystem reveal left<CR>", { desc = "Neo[t]ree [f]ilesystem" })
-vim.keymap.set("n", "<leader>tc", "<cmd>Neotree close<CR>", { desc = "Neo[t]ree [c]lose" })
-vim.keymap.set("n", "<leader>tb", "<cmd>Neotree buffers<CR>", { desc = "Neo[t]ree [b]uffers" })
-vim.keymap.set("n", "<leader>to", "<cmd>Neotree document_symbols<CR>", { desc = "Neo[t]ree document symbols ([o]utline)" })
-vim.keymap.set("n", "<leader>tt", "<cmd>Neotree toggle<CR>", { desc = "Neo[t]ree [t]oggle" })
 
 -- lsp
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Lsp: lsp Hover" })
@@ -58,7 +52,10 @@ vim.keymap.set("n", "<c-\\>", "<cmd>TmuxNavigatePrevious<CR>", { desc = "Tmux pN
 vim.keymap.set("n", "<leader>lg", "<cmd>LazyGit<CR>", { desc = "LazyGit" })
 
 -- Oil
-vim.keymap.set("n", "-", "<cmd>Oil<CR>", { desc = "Oil: Open parent directory" })
+vim.keymap.set("n", "-", "<cmd>Oil --float<CR>", { desc = "Oil: Open parent directory" })
 
 -- todo-comments
 vim.keymap.set("n", "<leader>td", "<cmd>TodoTelescope<CR>", { desc = "Show Todo comments" })
+
+-- neoclip
+vim.keymap.set("n", "<leader>cb", "<cmd>Telescope neoclip<cr>", { desc = "neoclip Clipboard Manager" })

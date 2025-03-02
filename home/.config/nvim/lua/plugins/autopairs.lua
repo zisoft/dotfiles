@@ -3,8 +3,7 @@ return {
   event = "InsertEnter",
   config = true,
   opts = {
-    fast_wrap = {
-      cursor_pos_before = false,
-    },
+    fast_wrap = { cursor_pos_before = false, },
+    disable_filetype = { "dap-repl" },
   },
 }
