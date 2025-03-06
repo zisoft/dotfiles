@@ -20,7 +20,12 @@ return {
     opts = {
       servers = {
         lua_ls = {},
-        clangd = {},
+        clangd = {
+          cmd = {
+            "clangd",
+            "--offset-encoding=utf-16",
+          }
+        },
       },
     },
     lazy = false,
