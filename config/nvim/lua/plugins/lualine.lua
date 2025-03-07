@@ -1,10 +1,13 @@
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = { 'nvim-tree/nvim-web-devicons' },
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  enabled = true,
   opts = {
     options = {
       theme = "catppuccin",
       globalstatus = true,
+      section_separators = { left = "", right = "" },
+      component_separators = { left = "", right = "" },
     },
     sections = {
       lualine_b = {
@@ -14,22 +17,23 @@ return {
       lualine_c = {
         {
           "filename",
-          path = 4,
+          path = 1,
         },
-        -- "buffers",
       },
       lualine_x = {
+        "filetype",
         "encoding",
         {
           "fileformat",
           symbols = {
             unix = "LF",
             dos = "CRLF",
-            mac = "LF",
+            mac = "CR",
           },
         },
-        "filetype",
       },
+      lualine_y = {},
+      lualine_z = {},
     },
   },
 }
