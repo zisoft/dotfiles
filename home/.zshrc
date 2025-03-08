@@ -66,6 +66,16 @@ fi
 export PATH=$PATH/:$HOME/.tmux/plugins/tmuxifier/bin
 eval "$(tmuxifier init -)"
 
+# Yazi
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
 # Language settings
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
