@@ -16,3 +16,6 @@ vim.opt.wrap = false
 vim.opt.termguicolors = true
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+vim.opt.relativenumber = true
+vim.opt.backup = false
+vim.opt.writebackup = false

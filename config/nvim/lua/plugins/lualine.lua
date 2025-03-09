@@ -33,7 +33,6 @@ return {
         },
       },
       lualine_y = {},
-      lualine_z = {},
     },
   },
 }
