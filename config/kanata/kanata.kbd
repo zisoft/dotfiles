@@ -1,20 +1,21 @@
 ;; defsrc is still necessary
 (defcfg
   process-unmapped-keys yes
+  concurrent-tap-hold yes
 )
 
 (defsrc
   caps a s d f j k l ;
 )
 (defvar
-  tap-time 200
+  tap-time 150
   hold-time 200
 )
 
 (defalias
-  escctrl (tap-hold $tap-time $tap-time esc lctl)
+  escctrl (tap-hold 200 $hold-time esc lctl)
   a (tap-hold $tap-time $hold-time a ralt)
-  s (tap-hold $tap-time $hold-time s lalt)
+  s (tap-hold $tap-time $hold-time s lmet)
   d (tap-hold $tap-time $hold-time d lsft)
   f (tap-hold $tap-time $hold-time f lctl)
   j (tap-hold $tap-time $hold-time j rctl)
@@ -27,6 +28,13 @@
   @escctrl @a @s @d @f @j @k @l @;
 )
 
-(deflayer fn
-  @escctrl _ _ _ _ _ _ _ _
+(defchordsv2
+  (a f) (layer-while-held nav) 500 first-release ()
+)
+
+(deflayermap (nav)
+  h left
+  j down
+  k up
+  l right
 )

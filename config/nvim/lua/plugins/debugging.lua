@@ -68,5 +68,18 @@ return {
     end
 
     dap.defaults.fallback.exception_breakpoints = { "uncaught", "raised" }
+
+    -- keymaps
+    vim.keymap.set("n", "<F5>", dap.continue, { desc = "Debugger continue" })
+    vim.keymap.set("n", "<F10>", dap.step_over, { desc = "Debugger step over" })
+    vim.keymap.set("n", "<F11>", dap.step_into, { desc = "Debugger step into" })
+    vim.keymap.set("n", "<F12>", dap.step_out, { desc = "Debugger step out" })
+    vim.keymap.set("n", "<Leader>b", dap.toggle_breakpoint, { desc = "Debugger toggle breakpoint" })
+    vim.keymap.set("n", "<leader>lp", function()
+      dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
+    end, { desc = "Debugger set logpoint" })
+
+    vim.keymap.set("n", "<C-i>", dapui.eval, { desc = "Debugger eval variable" })
+    vim.keymap.set("n", "<leader>cd", dapui.close, { desc = "Debugger close debugger" })
   end,
 }
