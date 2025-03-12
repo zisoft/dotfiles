@@ -13,6 +13,9 @@ return {
       integrations = {
         blink_cmp = true,
         mason = true,
+        indent_blankline = {
+          scope_color = "surface2",
+        },
       },
     })
 
