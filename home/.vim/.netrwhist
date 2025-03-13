@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =3
-let g:netrw_dirhist_3='/usr/local/etc'
-let g:netrw_dirhist_2='/usr/local/var/mysql/mysql'
-let g:netrw_dirhist_1='/usr/local/Cellar/graphicsmagick/1.3.40_1/lib/GraphicsMagick'

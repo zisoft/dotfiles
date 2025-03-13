@@ -22,6 +22,7 @@ require("vim-options")
 require("lazy").setup({
   spec = {
     { import = "plugins" },
+    { import = "plugins.lsp" },
   },
   -- checker = { enabled = true },
   change_detection = {
