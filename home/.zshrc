@@ -74,6 +74,9 @@ fi
 export PATH=$PATH/:$HOME/.tmux/plugins/tmuxifier/bin
 eval "$(tmuxifier init -)"
 
+# pipx installations
+export PATH=$PATH:$HOME/.local/bin
+
 # Yazi
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
