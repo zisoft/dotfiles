@@ -1,2 +1,4 @@
 --target=~/Library/Application\ Support
+--ignore=.storwrc
+--ignore=.DS_Store
 
