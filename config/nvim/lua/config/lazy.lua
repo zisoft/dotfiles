@@ -29,6 +29,3 @@ require("lazy").setup({
     notify = false,
   },
 })
-
-require("user.keymaps")
-require("user.set-make")
