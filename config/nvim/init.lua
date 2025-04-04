@@ -14,6 +14,9 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Make sure to setup `mapleader` and `maplocalleader` before
+-- loading lazy.nvim so that mappings are correct.
+-- This is also a good place to setup other settings (vim.opt)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
@@ -35,12 +38,12 @@ require("user.set-make")
 
 -- -- completion
 -- vim.api.nvim_create_autocmd("LspAttach", {
--- 	callback = function(ev)
--- 		local client = vim.lsp.get_client_by_id(ev.data.client_id)
--- 		if client:supports_method("textDocument/completion") then
--- 			vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
--- 			print("Completion enabled!")
--- 		end
--- 	end,
+--  callback = function(ev)
+--    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+--    if client:supports_method("textDocument/completion") then
+--      vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+--      print("Completion enabled!")
+--    end
+--  end,
 -- })
 

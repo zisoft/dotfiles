@@ -1,8 +1,8 @@
 vim.lsp.enable({
-	"clangd",
+  "clangd",
   "css",
   "html",
-	"lua",
+  "lua",
   "yaml",
 })
 
