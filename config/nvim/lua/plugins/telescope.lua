@@ -21,6 +21,12 @@ return {
             ".DS_Store",
             "po/",
           },
+
+          mappings = {
+            n = {
+              ["d"] = require("telescope.actions").delete_buffer,
+            },
+          },
         },
 
         pickers = {
@@ -36,8 +42,13 @@ return {
       vim.keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "Telescope find word under cursor" })
       vim.keymap.set("n", "<leader>bm", builtin.marks, { desc = "Telescope (book) marks" })
       vim.keymap.set("n", "<leader>ds", builtin.lsp_document_symbols, { desc = "Telescope document symbols" })
-      vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
       vim.keymap.set("n", "<leader>?", builtin.keymaps, { desc = "Telescope keymaps" })
+      vim.keymap.set(
+        "n",
+        "<S-b>",
+        "<cmd>Telescope buffers sort_lastused=true sort_mru=true initial_mode=normal<CR>",
+        { desc = "Telescope buffers" }
+      )
     end,
   },
 
