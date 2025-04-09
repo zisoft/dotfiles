@@ -45,8 +45,8 @@ return {
       vim.keymap.set("n", "<leader>?", builtin.keymaps, { desc = "Telescope keymaps" })
       vim.keymap.set(
         "n",
-        "<S-b>",
-        "<cmd>Telescope buffers sort_lastused=true sort_mru=true initial_mode=normal<CR>",
+        "<leader>fb",
+        "<cmd>Telescope buffers sort_lastused=true sort_mru=true<CR>",
         { desc = "Telescope buffers" }
       )
     end,

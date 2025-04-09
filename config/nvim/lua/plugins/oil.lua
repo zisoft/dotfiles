@@ -4,6 +4,7 @@ return {
   lazy = true,
   opts = {
     view_options = {
+      default_file_explorer = true,
       case_insensitive = true,
     },
     float = {
