@@ -20,6 +20,7 @@ vim.opt.relativenumber = true
 vim.opt.backup = false
 vim.opt.writebackup = false
 vim.opt.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+vim.opt.guicursor="n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,t:block-blinkon0-TermCursor"
 -- vim.opt.winborder = "rounded"
 
 -- Add noselect to completeopt, otherwise autocompletion is annoying
