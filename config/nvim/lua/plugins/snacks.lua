@@ -5,6 +5,7 @@ return {
 
   opts = {
     indent = { enabled = true, animate = { enabled = false } },
+    image = { enabled = true },
     lazygit = { enabled = true, win = { position = "float" } },
     notifier = { enabled = true },
     terminal = { enabled = true, win = { position = "right" } },
