@@ -34,7 +34,6 @@ require("lazy").setup({
 })
 
 require("user.keymaps")
-require("user.set-make")
 
 -- -- completion
 -- vim.api.nvim_create_autocmd("LspAttach", {

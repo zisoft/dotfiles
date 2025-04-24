@@ -14,17 +14,17 @@ return {
       layouts = {
         {
           elements = {
-            { id = "scopes",      size = 0.65 },
+            { id = "scopes", size = 0.65 },
             { id = "breakpoints", size = 0.10 },
-            { id = "stacks",      size = 0.15 },
-            { id = "watches",     size = 0.10 },
+            { id = "stacks", size = 0.15 },
+            { id = "watches", size = 0.10 },
           },
           position = "left",
           size = 60,
         },
         {
           elements = {
-            { id = "repl",    size = 0.5 },
+            { id = "repl", size = 0.5 },
             { id = "console", size = 0.5 },
           },
           position = "bottom",
@@ -44,20 +44,41 @@ return {
       command = "/Users/mario/.local/share/nvim/mason/bin/OpenDebugAD7",
     }
 
+    dap.configurations.cpp = {
+      {
+        name = "darktable master",
+        type = "cppdbg",
+        request = "launch",
+        program = "${workspaceFolder}/build/macosx/bin/darktable",
+        -- program = function()
+        --   return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+        -- end,
+        args = {
+          "--configdir", "/Users/mario/src/darktable_test_data/config",
+          "--cachedir", "/Users/mario/src/darktable_test_data/cache",
+          "-d", "common",
+        },
+        cwd = "${workspaceFolder}",
+        stopAtEntry = false,
+        externalConsole = false,
+        MIMode = "lldb",
+      },
+    }
+
     vim.api.nvim_set_hl(0, "DapStopped", { ctermbg = 0, fg = "#c6d0f5", bg = "#506373" })
 
     vim.fn.sign_define("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = "" })
     vim.fn.sign_define("DapLogPoint", { text = "♦️", texthl = "", linehl = "", numhl = "" })
     vim.fn.sign_define("DapStopped", { text = "→", texthl = "DapLogPoint", linehl = "DapStopped", numhl = "" })
 
-    dap.defaults.fallback.exception_breakpoints = { "raised", "uncaught" }
+    dap.defaults.fallback.exception_breakpoints = { "always" }
 
     dap.listeners.before.attach.dapui_config = function()
-      dap.set_exception_breakpoints({ "raised", "uncaught" })
+      dap.set_exception_breakpoints({ "always" })
       dapui.open()
     end
     dap.listeners.before.launch.dapui_config = function()
-      dap.set_exception_breakpoints({ "raised", "uncaught" })
+      dap.set_exception_breakpoints({ "always" })
       dapui.open()
     end
     dap.listeners.before.event_terminated.dapui_config = function()
@@ -81,5 +102,7 @@ return {
 
     vim.keymap.set("n", "<C-i>", dapui.eval, { desc = "Debugger eval variable" })
     vim.keymap.set("n", "<leader>cd", dapui.close, { desc = "Debugger close debugger" })
+
+    vim.keymap.set("n", "<leader>eb", dap.set_exception_breakpoints, { desc = "Debugger set exception breakpoints" })
   end,
 }
