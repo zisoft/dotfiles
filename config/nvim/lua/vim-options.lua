@@ -28,3 +28,8 @@ vim.opt.completeopt="menuone,noselect,popup"
 
 -- diagnostics
 vim.diagnostic.config({ virtual_text = true })
+
+-- folding
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+

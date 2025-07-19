@@ -71,10 +71,6 @@ if [ -d "/usr/local/opt/ruby/bin" ]; then
   export PATH=`gem environment gemdir`/bin:$PATH
 fi
 
-# tmuxifier
-export PATH=$PATH/:$HOME/.tmux/plugins/tmuxifier/bin
-eval "$(tmuxifier init -)"
-
 # pipx installations
 export PATH=$PATH:$HOME/.local/bin
 
@@ -118,5 +114,3 @@ alias sync_pics_synnas_philip='rsync -av --delete --delete-excluded --exclude-fr
 # alias sync_music_synnas='rsync -av --delete --delete-excluded --exclude-from='/Users/mario/.rsync_excludes' ~/Music/ -e "ssh -p 222" mario@zisoft-synnas:~//Music'
 # alias sync_music_synnas_philip='rsync -av --delete --delete-excluded --exclude-from='/Users/mario/.rsync_excludes' ~/Music/ -e "ssh -p 222" mario@philip.zisoft.de:~/Music'
 
-alias webstart='brew services start mysql && brew services start httpd'
-alias webstop='brew services stop httpd; brew services stop mysql'

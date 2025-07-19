@@ -13,7 +13,7 @@
 )
 
 (defalias
-  escctrl (tap-hold 200 $hold-time esc lctl)
+  esc-hyper (tap-hold 200 $hold-time esc (multi lalt lmet lctl))
   a (tap-hold $tap-time $hold-time a ralt)
   s (tap-hold $tap-time $hold-time s lmet)
   d (tap-hold $tap-time $hold-time d lsft)
@@ -25,7 +25,7 @@
 )
 
 (deflayer base
-  @escctrl @a @s @d @f @j @k @l @;
+  @esc-hyper @a @s @d @f @j @k @l @;
 )
 
 (defchordsv2

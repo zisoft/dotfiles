@@ -46,17 +46,38 @@ return {
 
     dap.configurations.cpp = {
       {
-        name = "darktable master",
+        name = "darktable",
         type = "cppdbg",
         request = "launch",
         program = "${workspaceFolder}/build/macosx/bin/darktable",
-        -- program = function()
-        --   return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-        -- end,
         args = {
-          "--configdir", "/Users/mario/src/darktable_test_data/config",
-          "--cachedir", "/Users/mario/src/darktable_test_data/cache",
-          "-d", "common",
+          "--configdir",
+          "/Users/mario/src/darktable_test_data/config",
+          "--cachedir",
+          "/Users/mario/src/darktable_test_data/cache",
+          "-d",
+          "common",
+        },
+        cwd = "${workspaceFolder}",
+        stopAtEntry = false,
+        externalConsole = false,
+        MIMode = "lldb",
+      },
+      {
+        name = "darktable CLI",
+        type = "cppdbg",
+        request = "launch",
+        program = "${workspaceFolder}/build/macosx/bin/darktable-cli",
+        args = {
+          "/Users/mario/TestPics/",
+          "/Users/mario",
+          "--core",
+          "--configdir",
+          "/Users/mario/src/darktable_test_data/config",
+          "--cachedir",
+          "/Users/mario/src/darktable_test_data/cache",
+          "-d",
+          "common",
         },
         cwd = "${workspaceFolder}",
         stopAtEntry = false,
@@ -64,6 +85,8 @@ return {
         MIMode = "lldb",
       },
     }
+
+    dap.configurations.c = dap.configurations.cpp
 
     vim.api.nvim_set_hl(0, "DapStopped", { ctermbg = 0, fg = "#c6d0f5", bg = "#506373" })
 
@@ -89,6 +112,15 @@ return {
     end
 
     dap.defaults.fallback.exception_breakpoints = { "uncaught", "raised" }
+
+    local repl = require("dap.repl")
+    repl.commands = vim.tbl_extend("force", repl.commands, {
+      custom_commands = {
+        [".hexdump"] = function(text)
+          dap.repl.execute("`memory read -c 64 " .. text)
+        end,
+      },
+    })
 
     -- keymaps
     vim.keymap.set("n", "<F5>", dap.continue, { desc = "Debugger continue" })
