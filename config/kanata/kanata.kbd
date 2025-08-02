@@ -1,4 +1,5 @@
-;; defsrc is still necessary
+;; https://github.com/jtroo/kanata/discussions/1455
+
 (defcfg
   process-unmapped-keys yes
   concurrent-tap-hold yes
@@ -7,25 +8,24 @@
 (defsrc
   caps a s d f j k l ;
 )
-(defvar
-  tap-time 150
-  hold-time 200
+
+(deftemplate charmod (char mod)
+  (switch
+    ((key-timing 3 less-than 250)) $char break
+    () (tap-hold-release-timeout 200 400 $char $mod $char) break
+  )
 )
 
-(defalias
-  esc-hyper (tap-hold 200 $hold-time esc (multi lalt lmet lctl))
-  a (tap-hold $tap-time $hold-time a ralt)
-  s (tap-hold $tap-time $hold-time s lmet)
-  d (tap-hold $tap-time $hold-time d lsft)
-  f (tap-hold $tap-time $hold-time f lctl)
-  j (tap-hold $tap-time $hold-time j rctl)
-  k (tap-hold $tap-time $hold-time k rsft)
-  l (tap-hold $tap-time $hold-time l rmet)
-  ; (tap-hold $tap-time $hold-time ; ralt)
-)
-
-(deflayer base
-  @esc-hyper @a @s @d @f @j @k @l @;
+(deflayermap (main)
+  caps (tap-hold 200 200 esc (multi lalt lmet lctl))    ;; caps --> hyper
+  a (t! charmod a ralt)
+  s (t! charmod s lmet)
+  d (t! charmod d lsft)
+  f (t! charmod f lctl)
+  j (t! charmod j rctl)
+  k (t! charmod k rsft)
+  l (t! charmod l rmet)
+  ; (t! charmod ; ralt)
 )
 
 (defchordsv2
@@ -38,3 +38,4 @@
   k up
   l right
 )
+

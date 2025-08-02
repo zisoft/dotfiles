@@ -21,6 +21,7 @@ return {
         "json",
         "javascript",
         "markdown",
+        "git_config",
         "gitcommit",
         "gitignore",
         "lua",
