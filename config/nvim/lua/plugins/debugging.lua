@@ -1,14 +1,20 @@
 return {
   "mfussenegger/nvim-dap",
   dependencies = {
+    "nvim-neotest/nvim-nio",
     "rcarriga/nvim-dap-ui",
     "theHamsta/nvim-dap-virtual-text",
-    "nvim-neotest/nvim-nio",
   },
 
   config = function()
     local dap = require("dap")
     local dapui = require("dapui")
+
+    dap.adapters.lldb = {
+      name = "lldb",
+      type = "executable",
+      command = "/Applications/Xcode.app/Contents/Developer/usr/bin/lldb-dap",
+    }
 
     dapui.setup({
       layouts = {
@@ -25,7 +31,7 @@ return {
         {
           elements = {
             { id = "repl", size = 0.5 },
-            { id = "console", size = 0.5 },
+            -- { id = "console", size = 0.5 },  -- console is useless as all output goes to REPL
           },
           position = "bottom",
           size = 10,
@@ -37,71 +43,6 @@ return {
       highlight_changed_variables = true,
       show_stop_reason = true,
     })
-
-    dap.adapters.lldb = {
-      name = "lldb",
-      type = "executable",
-      command = "/Applications/Xcode.app/Contents/Developer/usr/bin/lldb-dap",
-    }
-
-    dap.configurations.cpp = {
-      {
-        name = "darktable",
-        type = "lldb",
-        request = "launch",
-        program = "${workspaceFolder}/build/macosx/bin/darktable",
-        args = {
-          "--configdir",
-          "/Users/mario/src/darktable_test_data/config",
-          "--cachedir",
-          "/Users/mario/src/darktable_test_data/cache",
-          "-d",
-          "common",
-        },
-        cwd = "${workspaceFolder}",
-        stopAtEntry = false,
-
-        -- Add setupCommands for exception breakpoints
-        setupCommands = {
-          {
-            text = "-break-exception-catch",
-            description = "Catch all exceptions",
-            ignoreFailures = false,
-          },
-        },
-      },
-
-      {
-        name = "darktable CLI",
-        type = "lldb",
-        request = "launch",
-        program = "${workspaceFolder}/build/macosx/bin/darktable-cli",
-        args = {
-          "/Users/mario/TestPics/",
-          "/Users/mario",
-          "--core",
-          "--configdir",
-          "/Users/mario/src/darktable_test_data/config",
-          "--cachedir",
-          "/Users/mario/src/darktable_test_data/cache",
-          "-d",
-          "common",
-        },
-        cwd = "${workspaceFolder}",
-        stopAtEntry = false,
-
-        -- Add setupCommands for exception breakpoints
-        setupCommands = {
-          {
-            text = "-break-exception-catch",
-            description = "Catch all exceptions",
-            ignoreFailures = false,
-          },
-        },
-      },
-    }
-
-    dap.configurations.c = dap.configurations.cpp
 
     vim.api.nvim_set_hl(0, "DapStopped", { ctermbg = 0, fg = "#c6d0f5", bg = "#506373" })
 
@@ -124,11 +65,18 @@ return {
       dapui.close()
     end
 
+    -- command '.hd' (hexdump) for REPL
+    -- usage: .hd <variable> <len>
+    -- <len> is optional and defaults to 4 (number of 16 byte rows)
     local repl = require("dap.repl")
     repl.commands = vim.tbl_extend("force", repl.commands, {
       custom_commands = {
-        [".hexdump"] = function(text)
-          dap.repl.execute("`memory read -c 64 " .. text)
+        [".hd"] = function(text)
+          local params = vim.split(text, " ")
+          local addr = params[1]
+          local len = params[2]
+          len = 16 * (len or 4)
+          dap.repl.execute("memory read -c " .. len .. " " .. addr)
         end,
       },
     })
