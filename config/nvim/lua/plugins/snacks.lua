@@ -9,6 +9,11 @@ return {
     lazygit = { enabled = true, win = { position = "float" } },
     notifier = { enabled = true },
     terminal = { enabled = true, win = { position = "right" } },
+
+    styles = {
+      notification = { wo = { wrap = true }, },
+      notification_history = { wo = { wrap = true }, },
+    },
   },
 
   keys = {
@@ -19,6 +24,16 @@ return {
         Snacks.lazygit()
       end,
       desc = "LazyGit",
+    },
+
+    -- notifier
+    {
+      mode = "n",
+      "<leader>nh",
+      function()
+        Snacks.notifier.show_history()
+      end,
+      desc = "Notification history",
     },
 
     -- terminal
