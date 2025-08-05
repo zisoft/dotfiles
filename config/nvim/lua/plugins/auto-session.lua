@@ -2,41 +2,38 @@ return {
   "rmagatti/auto-session",
   lazy = false,
 
-  config = function()
-    require("auto-session").setup({
-      suppressed_dirs = {},
-      auto_save = false,
-      auto_restore = false,
-      session_lens = {
-        load_on_setup = true,
-        previewer = false,
-        mappings = {
-          -- Mode can be a string or a table, e.g. {"i", "n"} for both insert and normal mode
-          delete_session = { "i", "<C-D>" },
-          alternate_session = { "i", "<C-S>" },
-          copy_session = { "i", "<C-Y>" },
-        },
-        -- Can also set some Telescope picker options
-        -- For all options, see: https://github.com/nvim-telescope/telescope.nvim/blob/master/doc/telescope.txt#L112
-        theme_conf = {
-          border = true,
-          layout_config = {
-            width = 0.5,
-            height = 0.4,
-          },
+  opts = {
+    suppressed_dirs = {},
+    auto_save = false,
+    auto_restore = false,
+
+    session_lens = {
+      load_on_setup = false,
+      previewer = false,
+      mappings = {
+        delete_session = { { "n", "i" }, "<C-x>" },
+      },
+
+      picker_opts = {
+        preset = "select",
+        preview = false,
+        layout = {
+          width = 0.5,
+          height = 0.4,
         },
       },
-      post_restore_cmds = {
-        function()
-          if vim.fn.getcwd() == "/Users/mario/src/darktable" then
-            vim.cmd("set makeprg=ninja\\ install\\ -C\\ ./build")
-            vim.keymap.set("n", "<leader>mk", "<cmd>make<CR>", { desc = "call make command" })
-            vim.keymap.set("n", "<leader>db", "<cmd>!../debug_build.sh<CR>", { desc = "darktable debug build" })
-          end
-        end,
-      },
-    })
-  end,
+    },
+
+    post_restore_cmds = {
+      function()
+        if vim.fn.getcwd() == "/Users/mario/src/darktable" then
+          vim.cmd("set makeprg=ninja\\ install\\ -C\\ ./build")
+          vim.keymap.set("n", "<leader>mk", "<cmd>make<CR>", { desc = "call make command" })
+          vim.keymap.set("n", "<leader>db", "<cmd>!../debug_build.sh<CR>", { desc = "darktable debug build" })
+        end
+      end,
+    },
+  },
 
   keys = {
     { "<leader>ls", "<cmd>SessionSearch<cr>", desc = "Session search" },
