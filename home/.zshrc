@@ -65,6 +65,9 @@ export FZF_DEFAULT_OPTS=" \
 --color=selected-bg:#51576d \
 --color=border:#414559,label:#c6d0f5"
 
+# user scripts
+export PATH=$PATH:$HOME/bin
+
 # homebrew ruby
 if [ -d "/usr/local/opt/ruby/bin" ]; then
   export PATH=/usr/local/opt/ruby/bin:$PATH
@@ -100,8 +103,6 @@ alias la='ls -alh'
 
 alias ..='cd ..'
 
-alias vi='nvim'
-
 alias brewup='brew update; brew upgrade; brew upgrade --cask; brew cleanup; brew doctor'
 
 alias sync_pics_zisoft='rsync -r -t -v --delete --delete-excluded --exclude-from='/Users/mario/.rsync_excludes' ~/workspace/october2/storage/app/media/ -e ssh zisoft.de:/www/htdocs/w0107c10/october2/storage/app/media/'
@@ -113,4 +114,8 @@ alias sync_pics_synnas_philip='rsync -av --delete --delete-excluded --exclude-fr
 # alias sync_music='rsync -av --delete --delete-excluded --exclude-from='/Users/mario/.rsync_excludes' ~/Music/ /Volumes/Marios/Music'
 # alias sync_music_synnas='rsync -av --delete --delete-excluded --exclude-from='/Users/mario/.rsync_excludes' ~/Music/ -e "ssh -p 222" mario@zisoft-synnas:~//Music'
 # alias sync_music_synnas_philip='rsync -av --delete --delete-excluded --exclude-from='/Users/mario/.rsync_excludes' ~/Music/ -e "ssh -p 222" mario@philip.zisoft.de:~/Music'
+
+# nvim nightly
+# export NVIM_APPNAME=nvim_012
+# alias nvim='/Users/mario/TEST/nvim-macos-x86_64/bin/nvim'
 

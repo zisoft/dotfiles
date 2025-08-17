@@ -30,7 +30,7 @@ return {
         },
         {
           elements = {
-            { id = "repl", size = 0.5 },
+            { id = "repl", size = 1.0 },
             -- { id = "console", size = 0.5 },  -- console is useless as all output goes to REPL
           },
           position = "bottom",
@@ -92,7 +92,6 @@ return {
       dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
     end, { desc = "Debugger set logpoint" })
 
-    vim.keymap.set("n", "<C-i>", dapui.eval, { desc = "Debugger eval variable" })
     vim.keymap.set("n", "<leader>cd", dapui.close, { desc = "Debugger close debugger" })
   end,
 }

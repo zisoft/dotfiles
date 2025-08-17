@@ -1,46 +1,44 @@
 return {
   "echasnovski/mini.nvim",
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-  },
   version = false,
   lazy = false,
 
   config = function()
     require("mini.ai").setup()
     require("mini.surround").setup()
-    -- require("mini.pairs").setup()
-    -- require("mini.sessions").setup({
-    --   hooks = {
-    --     post = {
-    --       read = function()
-    --         if vim.fn.getcwd() == "/Users/mario/src/darktable" then
-    --           -- darktable session
-    --           vim.cmd("set makeprg=ninja\\ install\\ -C\\ ./build")
-    --           vim.keymap.set("n", "<leader>mk", "<cmd>make<CR>", { desc = "call make command" })
-    --           vim.keymap.set("n", "<leader>db", "<cmd>!../debug_build.sh<CR>", { desc = "darktable debug build" })
-    --           require("snacks").notify("darktable")
-    --         end
-    --       end,
-    --     },
-    --   },
-    -- })
-  end,
 
-  keys = {
-    -- mini.sessions
-    -- { "<leader>ls", "<Cmd>lua MiniSessions.select('read')<CR>", desc = "List sessions" },
-    -- {
-    --   "<leader>ss",
-    --   function()
-    --     -- get last path component for the session name
-    --     local Path = require("plenary.path")
-    --     local cwd = Path:new(vim.fn["getcwd"]())
-    --     local parts = cwd:_split()
-    --     local session_name = parts[#parts]
-    --     require("mini.sessions").write(session_name)
-    --   end,
-    --   desc = "Save session",
-    -- },
-  },
+    -- statusline
+    local MiniStatusline = require("mini.statusline")
+
+    local statusline = function()
+      local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
+      local git           = MiniStatusline.section_git({ trunc_width = 40 })
+      local diff          = MiniStatusline.section_diff({ trunc_width = 75 })
+      local filename      = MiniStatusline.section_filename({ trunc_width = 140 })
+      local fileinfo      = MiniStatusline.section_fileinfo({ trunc_width = 40 })
+
+      -- cut off file size from fileinfo, don't need it
+      local last_space    = fileinfo:match(".*()%s+")
+      if last_space then
+        fileinfo = fileinfo:sub(1, last_space - 1)
+      end
+
+      return MiniStatusline.combine_groups({
+        { hl = mode_hl,                 strings = { mode } },
+        { hl = 'MiniStatuslineDevinfo', strings = { git, diff } },
+        '%<', -- Mark general truncate point
+        { hl = 'MiniStatuslineFilename', strings = { filename } },
+        '%=', -- End left alignment
+        { hl = 'MiniStatuslineFileinfo', strings = { fileinfo } },
+      })
+    end
+
+    MiniStatusline.setup({
+      content = {
+        active = statusline,
+        inactive = nil,
+      },
+      use_icons = true
+    })
+  end,
 }
