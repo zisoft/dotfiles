@@ -9,7 +9,7 @@ return {
     lazygit = { enabled = true, win = { position = "float" } },
     terminal = { enabled = true, win = { position = "right" } },
 
-    notifier = {
+    statuscolumn = {
       enabled = true,
       folds = { open = true, },
     },
