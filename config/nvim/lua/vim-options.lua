@@ -19,12 +19,12 @@ vim.opt.splitbelow = true
 vim.opt.relativenumber = true
 vim.opt.backup = false
 vim.opt.writebackup = false
-vim.opt.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,localoptions"
-vim.opt.guicursor=""
+vim.opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,localoptions"
+vim.opt.guicursor = ""
 vim.opt.winborder = "rounded"
 
 -- Add noselect to completeopt, otherwise autocompletion is annoying
-vim.opt.completeopt="menuone,noselect,popup"
+vim.opt.completeopt = "menuone,noselect,popup"
 
 -- diagnostics
 vim.diagnostic.config({ virtual_text = true })
@@ -34,3 +34,5 @@ vim.opt.foldmethod = "indent"
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 
+vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#737994" })
+vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#737994" })
