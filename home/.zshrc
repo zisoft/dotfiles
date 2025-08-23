@@ -116,6 +116,6 @@ alias sync_pics_synnas_philip='rsync -av --delete --delete-excluded --exclude-fr
 # alias sync_music_synnas_philip='rsync -av --delete --delete-excluded --exclude-from='/Users/mario/.rsync_excludes' ~/Music/ -e "ssh -p 222" mario@philip.zisoft.de:~/Music'
 
 # nvim nightly
-# export NVIM_APPNAME=nvim_012
-# alias nvim='/Users/mario/TEST/nvim-macos-x86_64/bin/nvim'
+export NVIM_APPNAME=nvim_012
+alias nvim='/Users/mario/TEST/nvim-macos-x86_64/bin/nvim'
 
