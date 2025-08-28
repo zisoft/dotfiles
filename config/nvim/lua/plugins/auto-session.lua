@@ -36,8 +36,8 @@ return {
   },
 
   keys = {
-    { "<leader>ls", "<cmd>SessionSearch<cr>", desc = "Session search" },
-    { "<leader>ss", "<cmd>SessionSave<cr>", desc = "Save session" },
-    { "<leader>sr", "<cmd>SessionRestore<cr>", desc = "Restore session" },
+    { "<leader>ls", "<cmd>AutoSession search<cr>", desc = "Session search" },
+    { "<leader>ss", "<cmd>AutoSession save<cr>", desc = "Save session" },
+    { "<leader>sr", "<cmd>AutoSession restore<cr>", desc = "Restore session" },
   },
 }

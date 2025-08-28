@@ -1,19 +1,11 @@
 return {
   "saghen/blink.cmp",
-  dependencies = {
-    { "L3MON4D3/LuaSnip", version = "v2.*" },
-  },
   version = "1.*",
 
   config = function()
     require("blink.cmp").setup({
-      keymap = {
-        preset = "none",
-        ["<C-y>"] = { "select_and_accept" },
-        ["<C-p>"] = { "select_prev", "fallback_to_mappings" },
-        ["<C-n>"] = { "select_next", "fallback_to_mappings" },
-        ["<C-k>"] = { "snippet_forward", "fallback" },
-      },
+      keymap = { preset = "default" },
+
       cmdline = {
         completion = {
           menu = { auto_show = true },
@@ -31,7 +23,5 @@ return {
       },
     })
 
-    -- load snippets
-    require("luasnip.loaders.from_lua").load({ paths = "./snippets" })
   end,
 }
