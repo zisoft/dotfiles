@@ -74,8 +74,8 @@ if [ -d "/usr/local/opt/ruby/bin" ]; then
   export PATH=`gem environment gemdir`/bin:$PATH
 fi
 
-# pipx installations
-export PATH=$PATH:$HOME/.local/bin
+# .local/bin
+export PATH=$HOME/.local/bin:$PATH
 
 # Yazi
 function y() {
@@ -114,8 +114,4 @@ alias sync_pics_synnas_philip='rsync -av --delete --delete-excluded --exclude-fr
 # alias sync_music='rsync -av --delete --delete-excluded --exclude-from='/Users/mario/.rsync_excludes' ~/Music/ /Volumes/Marios/Music'
 # alias sync_music_synnas='rsync -av --delete --delete-excluded --exclude-from='/Users/mario/.rsync_excludes' ~/Music/ -e "ssh -p 222" mario@zisoft-synnas:~//Music'
 # alias sync_music_synnas_philip='rsync -av --delete --delete-excluded --exclude-from='/Users/mario/.rsync_excludes' ~/Music/ -e "ssh -p 222" mario@philip.zisoft.de:~/Music'
-
-# nvim nightly
-export NVIM_APPNAME=nvim_012
-alias nvim='/Users/mario/TEST/nvim-macos-x86_64/bin/nvim'
 

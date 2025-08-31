@@ -1,38 +1,37 @@
-vim.opt.expandtab = true
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.shiftround = true
-vim.opt.number = true
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.filetype = "on"
-vim.opt.cursorline = true
-vim.opt.autoread = true
-vim.opt.signcolumn = "yes:1"
-vim.opt.clipboard = "unnamedplus"
-vim.opt.swapfile = false
-vim.opt.wrap = false
-vim.opt.termguicolors = true
-vim.opt.splitright = true
-vim.opt.splitbelow = true
-vim.opt.relativenumber = true
-vim.opt.backup = false
-vim.opt.writebackup = false
-vim.opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,localoptions"
-vim.opt.guicursor = ""
-vim.opt.winborder = "rounded"
+vim.o.expandtab = true
+vim.o.tabstop = 2
+vim.o.softtabstop = 2
+vim.o.shiftwidth = 2
+vim.o.shiftround = true
+vim.o.number = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
+vim.o.filetype = "on"
+vim.o.cursorline = true
+vim.o.autoread = true
+vim.o.signcolumn = "yes:1"
+vim.o.clipboard = "unnamedplus"
+vim.o.swapfile = false
+vim.o.wrap = false
+vim.o.termguicolors = true
+vim.o.splitright = true
+vim.o.splitbelow = true
+vim.o.relativenumber = true
+vim.o.backup = false
+vim.o.writebackup = false
+vim.o.winborder = "rounded"
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,localoptions"
+vim.o.guicursor = ""
 
--- Add noselect to completeopt, otherwise autocompletion is annoying
-vim.opt.completeopt = "menuone,noselect,popup"
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
--- diagnostics
 vim.diagnostic.config({ virtual_text = true })
 
 -- folding
-vim.opt.foldmethod = "indent"
-vim.opt.foldlevel = 99
-vim.opt.foldlevelstart = 99
+vim.o.foldmethod = "indent"
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
 
 vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#737994" })
 vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#737994" })

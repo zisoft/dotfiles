@@ -1,69 +1,55 @@
-return {
-  "folke/snacks.nvim",
-  priority = 1000,
-  lazy = false,
+---@diagnostic disable: undefined-global
+vim.pack.add({ "https://github.com/folke/snacks.nvim" })
 
-  opts = {
-    indent = { enabled = true, animate = { enabled = false } },
-    image = { enabled = true },
-    lazygit = { enabled = true, win = { position = "float" } },
-    terminal = { enabled = true, win = { position = "right" } },
+require("snacks").setup({
+  indent = { enabled = true, animate = { enabled = false } },
+  lazygit = { enabled = true, win = { position = "float" } },
+  notifier = { enabled = true },
+  -- terminal = { enabled = true, win = { position = "right" } },
 
-    statuscolumn = {
-      enabled = true,
-      folds = { open = true, },
-    },
-
-    picker = {
-      enabled = true,
-      win = {
-        input = {
-          keys = {
-            ["<C-h>"] = { "toggle_hidden", mode = { "i", "n" } },
-            ["<C-i>"] = { "toggle_ignored", mode = { "i", "n" } },
-          }
-        }
-      }
-    },
-
-    styles = {
-      notification = { wo = { wrap = true } },
-      notification_history = { width = 0.8, wo = { wrap = true } },
-    },
+  statuscolumn = {
+    enabled = true,
+    folds = { open = true, },
   },
 
-  keys = {
-    { "<leader>n",  function() Snacks.notifier.show_history() end,               desc = "Notification History" },
+  picker = { enabled = true, },
 
-    -- find
-    { "<leader>fb", function() Snacks.picker.buffers() end,                      desc = "Buffers" },
-    { "<leader>ff", function() Snacks.picker.files() end,                        desc = "Find Files" },
-    { "<leader>fg", function() Snacks.picker.grep() end,                         desc = "Grep" },
-    { "<leader>fr", function() Snacks.picker.recent() end,                       desc = "Recent" },
-
-    -- search
-    { '<leader>s"', function() Snacks.picker.registers() end,                    desc = "Registers" },
-    { '<leader>s/', function() Snacks.picker.search_history() end,               desc = "Search History" },
-    { "<leader>sa", function() Snacks.picker.autocmds() end,                     desc = "Autocmds" },
-    { "<leader>sc", function() Snacks.picker.command_history() end,              desc = "Command History" },
-    { "<leader>sC", function() Snacks.picker.commands() end,                     desc = "Commands" },
-    { "<leader>sh", function() Snacks.picker.help({ layout = "ivy_split" }) end, desc = "Help Pages" },
-    { "<leader>sH", function() Snacks.picker.highlights() end,                   desc = "Highlights" },
-    { "<leader>si", function() Snacks.picker.icons() end,                        desc = "Icons" },
-    { "<leader>sj", function() Snacks.picker.jumps() end,                        desc = "Jumps" },
-    { "<leader>sk", function() Snacks.picker.keymaps() end,                      desc = "Keymaps" },
-    { "<leader>sl", function() Snacks.picker.loclist() end,                      desc = "Location List" },
-    { "<leader>sm", function() Snacks.picker.marks() end,                        desc = "Marks" },
-    { "<leader>sq", function() Snacks.picker.qflist() end,                       desc = "Quickfix List" },
-
-    -- lazygit
-    { "<leader>lg", function() Snacks.lazygit() end,                             desc = "LazyGit", },
-
-    -- terminal
-    { "<C-T>",      function() Snacks.terminal.open() end,                       desc = "Terminal", },
-    { mode = "t",   "<C-h>",                                                     "<Cmd>wincmd h<CR>",          desc = "Terminal" },
-    { mode = "t",   "<C-j>",                                                     "<Cmd>wincmd j<CR>",          desc = "Terminal" },
-    { mode = "t",   "<C-k>",                                                     "<Cmd>wincmd k<CR>",          desc = "Terminal" },
-    { mode = "t",   "<C-l>",                                                     "<Cmd>wincmd l<CR>",          desc = "Terminal" },
+  styles = {
+    notification = { wo = { wrap = true } },
+    notification_history = { width = 0.8, wo = { wrap = true } },
   },
-}
+
+})
+
+vim.keymap.set("n", "<leader>n", function() Snacks.notifier.show_history() end, { desc = "Notification History" })
+
+-- find
+vim.keymap.set("n", "<leader>fb", function() Snacks.picker.buffers() end, { desc = "Buffers" })
+vim.keymap.set("n", "<leader>ff", function() Snacks.picker.files() end, { desc = "Find Files" })
+vim.keymap.set("n", "<leader>fg", function() Snacks.picker.grep({ exclude = { "*.po" } }) end, { desc = "Grep" })
+vim.keymap.set("n", "<leader>fr", function() Snacks.picker.recent() end, { desc = "Recent" })
+
+-- search
+vim.keymap.set("n", '<leader>s"', function() Snacks.picker.registers() end, { desc = "Registers" })
+vim.keymap.set("n", '<leader>s/', function() Snacks.picker.search_history() end, { desc = "Search History" })
+vim.keymap.set("n", "<leader>sa", function() Snacks.picker.autocmds() end, { desc = "Autocmds" })
+vim.keymap.set("n", "<leader>sc", function() Snacks.picker.command_history() end, { desc = "Command History" })
+vim.keymap.set("n", "<leader>sC", function() Snacks.picker.commands() end, { desc = "Commands" })
+vim.keymap.set("n", "<leader>sh", function() Snacks.picker.help() end, { desc = "Help Pages" })
+vim.keymap.set("n", "<leader>sH", function() Snacks.picker.highlights() end, { desc = "Highlights" })
+vim.keymap.set("n", "<leader>si", function() Snacks.picker.icons() end, { desc = "Icons" })
+vim.keymap.set("n", "<leader>sj", function() Snacks.picker.jumps() end, { desc = "Jumps" })
+vim.keymap.set("n", "<leader>sk", function() Snacks.picker.keymaps() end, { desc = "Keymaps" })
+vim.keymap.set("n", "<leader>sl", function() Snacks.picker.loclist() end, { desc = "Location List" })
+vim.keymap.set("n", "<leader>sm", function() Snacks.picker.marks() end, { desc = "Marks" })
+vim.keymap.set("n", "<leader>sq", function() Snacks.picker.qflist() end, { desc = "Quickfix List" })
+
+-- lazygit
+vim.keymap.set("n", "<leader>lg", function() Snacks.lazygit() end, { desc = "LazyGit" })
+
+-- terminal
+-- vim.keymap.set("n", "<C-T>", function() Snacks.terminal.open() end, { desc = "Terminal" })
+-- vim.keymap.set("t", "<C-h>", "<Cmd>wincmd h<CR>", { desc = "Terminal" })
+-- vim.keymap.set("t", "<C-j>", "<Cmd>wincmd j<CR>", { desc = "Terminal" })
+-- vim.keymap.set("t", "<C-k>", "<Cmd>wincmd k<CR>", { desc = "Terminal" })
+-- vim.keymap.set("t", "<C-l>", "<Cmd>wincmd l<CR>", { desc = "Terminal" })

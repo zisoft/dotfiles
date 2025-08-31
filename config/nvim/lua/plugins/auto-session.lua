@@ -1,17 +1,16 @@
-return {
-  "rmagatti/auto-session",
-  lazy = false,
+vim.pack.add({"https://github.com/rmagatti/auto-session"})
 
-  opts = {
-    suppressed_dirs = {},
+require("auto-session").setup({
     auto_save = false,
     auto_restore = false,
+    lazy_support = false,
+    suppressed_dirs = {},
 
     session_lens = {
       load_on_setup = false,
       previewer = false,
       mappings = {
-        delete_session = { { "n", "i" }, "<C-x>" },
+        delete_session = { {"n", "i"}, "<C-x>" },
       },
 
       picker_opts = {
@@ -33,11 +32,10 @@ return {
         end
       end,
     },
-  },
 
-  keys = {
-    { "<leader>ls", "<cmd>AutoSession search<cr>", desc = "Session search" },
-    { "<leader>ss", "<cmd>AutoSession save<cr>", desc = "Save session" },
-    { "<leader>sr", "<cmd>AutoSession restore<cr>", desc = "Restore session" },
-  },
-}
+  })
+
+vim.keymap.set("n", "<leader>ls", "<cmd>AutoSession search<cr>",  { desc = "Session search" })
+vim.keymap.set("n", "<leader>ss", "<cmd>AutoSession save<cr>",    { desc = "Session save" })
+vim.keymap.set("n", "<leader>sr", "<cmd>AutoSession restore<cr>", { desc = "Session restore" })
+

@@ -1,21 +1,16 @@
-return {
-  "catppuccin/nvim",
-  name = "catppuccin",
-  priority = 1000,
+vim.pack.add({ "https://github.com/catppuccin/nvim" })
 
-  config = function()
-    require("catppuccin").setup({
-      flavour = "frappe",
-      styles = {
-        comments = { "italic" },
-        conditionals = {},
-      },
-      integrations = {
-        blink_cmp = true,
-        mason = true,
-      },
-    })
+require("catppuccin").setup({
+  flavour = "frappe",
+  styles = {
+    comments = { "italic" },
+    conditionals = {},
+    misc = {},
+  },
+  integrations = {
+    blink_cmp = true,
+    mason = true,
+  },
+})
 
-    vim.cmd.colorscheme("catppuccin")
-  end,
-}
+vim.cmd.colorscheme("catppuccin")

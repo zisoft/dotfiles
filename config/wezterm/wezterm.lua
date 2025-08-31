@@ -45,6 +45,7 @@ config.initial_rows = 50
 config.initial_cols = 130
 config.enable_tab_bar = false
 config.window_close_confirmation = "NeverPrompt"
+config.window_decorations = "RESIZE"
 
 config.font = wezterm.font("JetBrains Mono")
 config.font_size = 13
@@ -57,14 +58,22 @@ config.send_composed_key_when_left_alt_is_pressed = true
 config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 }
 
 config.keys = {
+  -- make ALT-i available to Neovim
+  { key = "i", mods = "ALT",    action = wezterm.action.SendKey { key = "i", mods = "ALT" } },
+
   { key = "s", mods = "LEADER", action = wezterm.action { SplitVertical = { domain = "CurrentPaneDomain" } } },
   { key = "v", mods = "LEADER", action = wezterm.action { SplitHorizontal = { domain = "CurrentPaneDomain" } } },
+
+  { key = "c", mods = "LEADER", action = wezterm.action.SpawnTab("CurrentPaneDomain") },
+  { key = "p", mods = "LEADER", action = wezterm.action.ActivateTabRelative(-1) },
+  { key = "n", mods = "LEADER", action = wezterm.action.ActivateTabRelative(1) },
 
   -- move between split panes
   split_nav('move', 'h'),
   split_nav('move', 'j'),
   split_nav('move', 'k'),
   split_nav('move', 'l'),
+
   -- resize panes
   split_nav('resize', 'h'),
   split_nav('resize', 'j'),

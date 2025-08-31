@@ -1,43 +1,31 @@
 vim.lsp.enable({
   "clangd",
-  "css",
+  "cssls",
   "html",
-  "lua",
-  "yaml",
+  "lua_ls",
+  "yamlls",
 })
 
-vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Lsp: Goto definition"})
-
--- return {
---   "neovim/nvim-lspconfig",
---   dependencies = {
---     "saghen/blink.cmp",
---   },
---   lazy = false,
---   opts = {
---     servers = {
---       lua_ls = {},
---       clangd = {
---         cmd = {
---           "clangd",
---           "--offset-encoding=utf-16",
---         },
---       },
---     },
---   },
+-- vim.api.nvim_create_autocmd('LspAttach', {
+--   desc = "Enable auto-completion",
+--   callback = function(ev)
+--     local client = vim.lsp.get_client_by_id(ev.data.client_id)
+--     if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_completion) then
+--       vim.opt.completeopt = { 'menu', 'menuone', 'noinsert', 'fuzzy', 'popup', 'noselect' }
 --
---   config = function(_, opts)
---     local lspconfig = require("lspconfig")
---     for server, config in pairs(opts.servers) do
---       config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
---       lspconfig[server].setup(config)
+--       -- trigger completion on every character (may be slow!)
+--       -- local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
+--       -- client.server_capabilities.completionProvider.triggerCharacters = chars
+--
+--       vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+--       -- vim.notify("Completion enabled!")
+--
+--       -- Ctrl-Space funktioniert nicht im Windows-Terminal
+--       vim.keymap.set("i", "<C-space>", function() vim.lsp.completion.get() end, { desc = "Lsp: get completion" })
 --     end
 --   end,
---
---   keys = {
---     { "K", vim.lsp.buf.hover, desc = "Lsp: lsp Hover" },
---     { "gD", vim.lsp.buf.declaration, desc = "Lsp: Goto declaration" },
---     { "gd", vim.lsp.buf.definition, desc = "Lsp: Goto definition" },
---     { "<leader>ca", vim.lsp.buf.code_action, desc = "Lsp: Code action", mode = { "n", "v" } },
---   },
--- }
+-- })
+
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Lsp: Goto definition" })
+vim.keymap.set("n", "gf", vim.lsp.buf.format, { desc = "Lsp: Format buffer" })
+

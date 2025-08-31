@@ -4,8 +4,7 @@
     "lua/?.lua",
     "lua/?/init.lua"
   ],
-  "diagnostics.globals": ["vim",
-        "Snacks"],
+  "diagnostics.globals": ["vim" ],
   "workspace.checkThirdParty": false,
   "workspace.library": [
     "$VIMRUNTIME"
