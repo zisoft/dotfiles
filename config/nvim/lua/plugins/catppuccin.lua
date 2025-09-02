@@ -1,7 +1,6 @@
 vim.pack.add({ "https://github.com/catppuccin/nvim" })
 
 require("catppuccin").setup({
-  flavour = "frappe",
   styles = {
     comments = { "italic" },
     conditionals = {},
@@ -12,5 +11,3 @@ require("catppuccin").setup({
     mason = true,
   },
 })
-
-vim.cmd.colorscheme("catppuccin")

@@ -25,12 +25,21 @@ local statusline = function()
     fileinfo = fileinfo:sub(1, last_space - 1)
   end
 
+  local tab_icon = "󰌒 "
+  local width = vim.bo.tabstop
+  if vim.bo.expandtab then
+    tab_icon = "󱁐 "
+    width = vim.bo.shiftwidth
+  end
+  local indent = tab_icon .. width
+
   return MiniStatusline.combine_groups({
     { hl = mode_hl,                 strings = { mode } },
     { hl = 'MiniStatuslineDevinfo', strings = { git, diff } },
     '%<', -- Mark general truncate point
     { hl = 'MiniStatuslineFilename', strings = { filename } },
     '%=', -- End left alignment
+    { hl = 'MiniStatuslineFileinfo', strings = { indent } },
     { hl = 'MiniStatuslineFileinfo', strings = { fileinfo } },
   })
 end

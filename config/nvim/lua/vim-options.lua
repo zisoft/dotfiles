@@ -22,6 +22,7 @@ vim.o.writebackup = false
 vim.o.winborder = "rounded"
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,localoptions"
 vim.o.guicursor = ""
+vim.o.clipboard = "unnamedplus"
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"

@@ -25,3 +25,4 @@ require("plugins.smart-splits")
 
 vim.keymap.set("n", "<leader>pu", function() vim.pack.update() end, { desc = "Update packages" })
 
+vim.cmd.colorscheme("catppuccin-frappe")
