@@ -8,7 +8,7 @@ config.setup({
   auto_install = true,
   highlight = {
     enable = true,
-    additional_vim_reges_highlighting = false,
+    additional_vim_regex_highlighting = false,
   },
   indent = { enable = true },
   ensure_installed = {
@@ -18,7 +18,8 @@ config.setup({
     "gitignore",
     "lua",
     "markdown",
-    "vim"
+    "vim",
+    "vimdoc"
   },
 })
 
