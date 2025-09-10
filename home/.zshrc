@@ -22,7 +22,8 @@ autoload -Uz compinit && compinit
 zinit cdreplay -q
 
 # Keybindings
-bindkey -e
+bindkey -v
+bindkey '^e' autosuggest-accept
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[[A' history-search-backward
@@ -67,15 +68,13 @@ export FZF_DEFAULT_OPTS=" \
 
 # user scripts
 export PATH=$PATH:$HOME/bin
+export PATH=$HOME/.local/bin:$PATH
 
 # homebrew ruby
 if [ -d "/usr/local/opt/ruby/bin" ]; then
   export PATH=/usr/local/opt/ruby/bin:$PATH
   export PATH=`gem environment gemdir`/bin:$PATH
 fi
-
-# .local/bin
-export PATH=$HOME/.local/bin:$PATH
 
 # Yazi
 function y() {

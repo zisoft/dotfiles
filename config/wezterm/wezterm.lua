@@ -55,11 +55,12 @@ config.color_scheme = "Catppuccin Frappe"
 
 config.send_composed_key_when_left_alt_is_pressed = true
 
-config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 }
+config.leader = { key = 'b', mods = 'CTRL', timeout_milliseconds = 1000 }
 
 config.keys = {
-  -- make ALT-i available to Neovim
+  -- make ALT-h and ALT-i available to Neovim
   { key = "i", mods = "ALT",    action = wezterm.action.SendKey { key = "i", mods = "ALT" } },
+  { key = "h", mods = "ALT",    action = wezterm.action.SendKey { key = "h", mods = "ALT" } },
 
   { key = "s", mods = "LEADER", action = wezterm.action { SplitVertical = { domain = "CurrentPaneDomain" } } },
   { key = "v", mods = "LEADER", action = wezterm.action { SplitHorizontal = { domain = "CurrentPaneDomain" } } },
