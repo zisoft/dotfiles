@@ -1,6 +1,19 @@
-;; https://github.com/jtroo/kanata/discussions/1656
+;; This is the kanata config for my MacBook.
+;;
+;; It uses homerow mods (HMR) as dercribed here:
+;;    https://github.com/jtroo/kanata/discussions/1656
+;;
+;; The caps key acts as Esc when tapped, and for layer switching when held:
+;;    1 - QWERTZ layer with HMR (I am on a German keyboard)
+;;    2 - Colemak-DH with HMR
+;;
 
 (defcfg
+  ;; use MacBook internal keyboard only
+  macos-dev-names-include (
+    "Apple Internal Keyboard / Trackpad"
+  )
+
   process-unmapped-keys yes 
   concurrent-tap-hold yes
 )
@@ -8,6 +21,7 @@
 
 (defvirtualkeys
   to-base (layer-switch base)
+  to-colemak (layer-switch colemak-dh)
 )
 
 (defvar
@@ -21,13 +35,11 @@
 	)
 )
 
-;; homerowmodfiltered is a way to force problematic bigrams to become letters not mods
-(deftemplate homerowmodfiltered (timeouttap timeouthold keytap keyhold typinglist)
-  (tap-hold-release-keys $timeouttap $timeouthold
-    (multi $keytap  @.tp)
-    $keyhold
-    $typinglist ;; Activates $keytap early if a key within $typinglist is pressed before hold activates.
-  )
+(deftemplate homerowmod-cm (timeouttap timeouthold keytap keyhold)
+	(tap-hold $timeouttap $timeouthold 
+		(multi $keytap  @.tp-cm) 
+		$keyhold
+	)
 )
 
 (defalias
@@ -40,34 +52,66 @@
             ) break
       )
   .spc-typing   (multi (layer-switch base) spc) ;; expilcitly leave typing-layer when hitting `space` - this allows experimenting with higher idle timeouts
+
+  .tp-cm (switch
+        ;;(lsft rsft) XX break ;; optional skip typing-layer activation for upper case keys might solves some FJ problems
+        ()  (multi
+              (layer-switch typing-cm)
+              (on-idle 55 tap-vkey to-colemak) ;; timeouts from 30 to 100 are wide spread
+            ) break
+      )
+  .spc-typing-cm   (multi (layer-switch colemak-dh) spc) ;; expilcitly leave typing-layer when hitting `space` - this allows experimenting with higher idle timeouts
+
+  caps-ext (tap-hold 200 200 esc (layer-while-held nav)) ;; for caps: esc for tap, nav for hold
 )
+
+
 
 (defsrc )
 
 (deflayermap (base)
  ;; define home row mods (they act as typing-layer triggers, too )
- caps (tap-hold 200 200 esc (layer-while-held nav))
+ caps @caps-ext
+ q (multi q @.tp) w (multi w @.tp) e (multi e @.tp) r (multi r @.tp) t (multi t @.tp) y (multi y @.tp) u (multi u @.tp) i (multi i @.tp) o (multi o @.tp) p (multi p @.tp)
  a (t! homerowmod $tot 160 a ralt)
  s (t! homerowmod $tot 160 s lmet)
  d (t! homerowmod $tot 160 d lsft)
  f (t! homerowmod $tot 160 f lctl)
+ g (multi g @.tp) h (multi h @.tp)
  j (t! homerowmod $tot 160 j rctl)
  k (t! homerowmod $tot 160 k rsft)
  l (t! homerowmod $tot 160 l rmet)
  ; (t! homerowmod $tot 160 ; ralt)
- ;; define each letter as typing-layer trigger
- q (multi q @.tp) w (multi w @.tp) e (multi e @.tp) r (multi r @.tp) t (multi t @.tp) y (multi y @.tp) u (multi u @.tp) i (multi i @.tp) o (multi o @.tp) p (multi p @.tp) g (multi g @.tp) h (multi h @.tp) z (multi z @.tp) x (multi x @.tp) c (multi c @.tp) v (multi v @.tp) b (multi b @.tp) n (multi n @.tp) m (multi m @.tp) 
+ z (multi z @.tp) x (multi x @.tp) c (multi c @.tp) v (multi v @.tp) b (multi b @.tp) n (multi n @.tp) m (multi m @.tp) 
 )
 
 (deflayermap (typing) 
- a a b b c c d d e e f f g g h h i i j j k k l l m m n n o o p p q q r r s s t t u u v v w w x x y y z z 
- caps XX ;; key deactivations of caps,... are optional
+ caps XX ;; key deactivations of caps
+ a a  b b  c c  d d  e e  f f  g g  h h  i i  j j  k k  l l  m m  n n  o o  p p  q q  r r  s s  t t  u u  v v  w w  x x  y z  z y 
+)
+
+(deflayermap (typing-cm) 
+ caps XX ;; key deactivations of caps
+ a a  b v  c c  d s  e f  f t  g m  h m  i u  j n  k e  l i  m h  n k  o z  p ;  q q  r p  s r  t b  u l  v d  w w  x x  y z  z y  ; o
+)
+
+(deflayermap (colemak-dh)
+ q (multi q @.tp-cm) w (multi w @.tp-cm) e (multi f @.tp-cm) r (multi p @.tp-cm) t (multi b @.tp-cm) y (multi j @.tp-cm) u (multi l @.tp-cm) i (multi u @.tp-cm) o (multi z @.tp-cm) p (multi ; @.tp-cm)
+ caps @caps-ext
+ a (t! homerowmod-cm $tot 160 a ralt)
+ s (t! homerowmod-cm $tot 160 r lmet)
+ d (t! homerowmod-cm $tot 160 s lsft)
+ f (t! homerowmod-cm $tot 160 t lctl)
+ g (multi g @.tp-cm) h (multi m @.tp-cm)
+ j (t! homerowmod-cm $tot 160 n rctl)
+ k (t! homerowmod-cm $tot 160 e rsft)
+ l (t! homerowmod-cm $tot 160 i rmet)
+ ; (t! homerowmod-cm $tot 160 o ralt)
+ z (multi y @.tp-cm) x (multi x @.tp-cm) c (multi c @.tp-cm) v (multi d @.tp-cm) b (multi v @.tp-cm) n (multi k @.tp-cm) m (multi h @.tp-cm)
 )
 
 (deflayermap (nav)
-  h left
-  j down
-  k up
-  l right
+  1 (layer-switch base)       ;; 1 : Homerow Mods only
+  2 (layer-switch colemak-dh) ;; 2 : Colemak with Homerow Mods
 )
 
