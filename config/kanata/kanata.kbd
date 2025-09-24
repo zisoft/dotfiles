@@ -3,9 +3,10 @@
 ;; It uses homerow mods (HMR) as described here:
 ;;    https://github.com/jtroo/kanata/discussions/1455
 ;;
-;; The caps key acts as Esc when tapped, and for layer switching when held:
-;;    1 - QWERTZ layer with HMR (I am on a german keyboard)
-;;    2 - Colemak-DH with HMR
+;; The caps key acts as Esc when tapped, and for extended functions when held:
+;;    1    - QWERTZ layer with HMR (I am on a german keyboard)
+;;    2    - Colemak-DH with HMR
+;;    rsft - Caps Word
 ;;
 
 (defcfg
@@ -30,18 +31,18 @@
 )
 
 (deflocalkeys-macos
-  ß    12
-  ´    13
-  z    21
-  ü    26
-  +    27
-  ö    39
-  ä    40
-  <    41
-  #    43
-  y    44
-  -    53
-  ^    86
+  ß  12
+  ´  13
+  z  21
+  ü  26
+  +  27
+  ö  39
+  ä  40
+  <  41
+  #  43
+  y  44
+  -  53
+  ^  86
 )
 
 ;; MacBook german keyboard layout
@@ -101,5 +102,10 @@
 (deflayermap (nav)
   1 (layer-switch qwertz)
   2 (layer-switch colemak-dh)
+  rsft (caps-word-custom-toggle
+    2000
+    (a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9 lsft)
+    (bspc del up down left rght -)
+  )
 )
 

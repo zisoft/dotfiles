@@ -1,11 +1,12 @@
 ;; This is the kanata config for my MacBook.
 ;;
-;; It uses homerow mods (HMR) as dercribed here:
+;; It uses homerow mods (HMR) as described here:
 ;;    https://github.com/jtroo/kanata/discussions/1656
 ;;
-;; The caps key acts as Esc when tapped, and for layer switching when held:
-;;    1 - QWERTZ layer with HMR (I am on a German keyboard)
-;;    2 - Colemak-DH with HMR
+;; The caps key acts as Esc when tapped, and for extended functions when held:
+;;    1    - QWERTZ layer with HMR (I am on a German keyboard)
+;;    2    - Colemak-DH with HMR
+;;    rsft - Caps-Word
 ;;
 
 (defcfg
@@ -129,5 +130,10 @@
 (deflayermap (nav)
   1 (layer-switch base)       ;; 1 : Homerow Mods only
   2 (layer-switch colemak-dh) ;; 2 : Colemak-DH with Homerow Mods
+  rsft (caps-word-custom-toggle
+    2000
+    (a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9 lsft)
+    (bspc del up down left rght -)
+  )
 )
 
