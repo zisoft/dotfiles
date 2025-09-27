@@ -43,6 +43,7 @@ vim.keymap.set("n", "<leader>sk", function() Snacks.picker.keymaps() end, { desc
 vim.keymap.set("n", "<leader>sl", function() Snacks.picker.loclist() end, { desc = "Location List" })
 vim.keymap.set("n", "<leader>sm", function() Snacks.picker.marks() end, { desc = "Marks" })
 vim.keymap.set("n", "<leader>sq", function() Snacks.picker.qflist() end, { desc = "Quickfix List" })
+vim.keymap.set("n", "<leader>so", function() Snacks.picker.lsp_symbols() end, { desc = "LSP symbols" })
 
 -- lazygit
 vim.keymap.set("n", "<leader>lg", function() Snacks.lazygit() end, { desc = "LazyGit" })

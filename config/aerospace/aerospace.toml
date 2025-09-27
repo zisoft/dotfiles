@@ -35,7 +35,7 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 # You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
 # Useful if you don't use this macOS feature, but accidentally hit cmd-h or cmd-ctrl-cmd-alt-h key
 # Also see: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
-automatically-unhide-macos-hidden-apps = false
+automatically-unhide-macos-hidden-apps = true
 
 # Possible values: (qwerty|dvorak|colemak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
@@ -108,8 +108,8 @@ automatically-unhide-macos-hidden-apps = false
     ctrl-cmd-alt-shift-l = 'move right'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#resize
-    ctrl-cmd-alt-minus = 'resize smart -50'
-    ctrl-cmd-alt-equal = 'resize smart +50'
+    ctrl-cmd-alt-space = 'resize smart -50'
+    ctrl-cmd-alt-enter = 'resize smart +50'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
     ctrl-cmd-alt-1 = 'workspace 1'
@@ -137,7 +137,8 @@ automatically-unhide-macos-hidden-apps = false
     ctrl-cmd-alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
-    ctrl-cmd-alt-shift-semicolon = 'mode service'
+    ctrl-cmd-alt-s = 'mode service'
+
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -158,3 +159,4 @@ automatically-unhide-macos-hidden-apps = false
     down = 'volume down'
     up = 'volume up'
     shift-down = ['volume set 0', 'mode main']
+
