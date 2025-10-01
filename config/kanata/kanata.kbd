@@ -68,19 +68,6 @@
   lsft    <      y      x      c      v      b      n      m      ,      .      -   rsft
 )
 
-(deflayermap (qwertz)
-  esc (tap-hold 200 200 esc (layer-while-held ext)) 
-  caps (tap-hold 200 200 esc (multi lalt lctl lmet))
-  a (t! charmod a ralt)
-  s (t! charmod s lmet)
-  d (t! charmod d lsft)
-  f (t! charmod f lctl)
-  j (t! charmod j rctl)
-  k (t! charmod k rsft)
-  l (t! charmod l rmet)
-  ö (t! charmod ö ralt)
-)
-
 (deflayer colemak-dh
   (tap-hold 200 200 esc (layer-while-held ext)) F1     F2     F3     F4     F5     F6     F7     F8     F9    F10    F11    F12
   ^       1      2      3      4      5      6      7      8      9      0      ß     ´     bspc
@@ -99,9 +86,22 @@
   lsft    <     z      x      c      d      v      k      h      ,      .      -   rsft
 )
 
+(deflayermap (qwertz)
+  esc (tap-hold 200 200 esc (layer-while-held ext)) 
+  caps (tap-hold 200 200 esc (multi lalt lctl lmet))
+  a (t! charmod a ralt)
+  s (t! charmod s lmet)
+  d (t! charmod d lsft)
+  f (t! charmod f lctl)
+  j (t! charmod j rctl)
+  k (t! charmod k rsft)
+  l (t! charmod l rmet)
+  ö (t! charmod ö ralt)
+)
+
 (deflayermap (ext)
-  1 (layer-switch qwertz)
-  2 (layer-switch colemak-dh)
+  1 (layer-switch colemak-dh)
+  2 (layer-switch qwertz)
   rsft (caps-word-custom-toggle
     2000
     (a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9 lsft)
