@@ -1,48 +1,73 @@
 ;; This is the kanata config for my MacBook.
 ;;
 ;; It uses homerow mods (HMR) as described here:
-;;    https://github.com/jtroo/kanata/discussions/1455
+;;    https://github.com/jtroo/kanata/discussions/1656
 ;;
-;; The caps key acts as Esc when tapped, and for extended functions when held:
-;;    1    - QWERTZ layer with HMR (I am on a german keyboard)
-;;    2    - Colemak-DH with HMR
+;; The caps key acts as Esc when tapped, and as super (Ctrl-Option-Cmd) when held
+;;
+;; Esc is for extended functions when held:
+;;    1    - Colemak-DH with HMR
+;;    2    - QWERTZ layer with HMR (I am on a german keyboard)
 ;;    rsft - Caps Word
 ;;
 
 (defcfg
   ;; use MacBook internal keyboard only
-  ;; NOTE: This does not work after sleep, see:
-  ;;   https://github.com/jtroo/kanata/issues/1357 
-  ;;
   macos-dev-names-include (
     "Apple Internal Keyboard / Trackpad"
   )
 
-  process-unmapped-keys yes
+  process-unmapped-keys yes 
   concurrent-tap-hold yes
 )
+;; timeings should work fine for 40 to 80 words per minute; if you are slower or new to home row mods increasing them might help in getting started   
 
-(deftemplate charmod (char mod)
-  (switch
-    ((key-timing 3 less-than 250)) $char break
-    () (tap-hold-release-timeout 200 400 $char $mod $char) break
-  )
+(defvirtualkeys
+  to-qwertz (layer-switch qwertz)
+  to-colemak (layer-switch colemak-dh)
 )
 
-(deflocalkeys-macos
-  ß  12
-  ´  13
-  z  21
-  ü  26
-  +  27
-  ö  39
-  ä  40
-  <  41
-  #  43
-  y  44
-  -  53
-  ^  86
+(defvar
+  tot 220  ;; tot=time out tap
 )
+
+(deftemplate homerowmod (timeouttap timeouthold keytap keyhold)
+	(tap-hold $timeouttap $timeouthold 
+		(multi $keytap  @.tp) 
+		$keyhold
+	)
+)
+
+(deftemplate homerowmod-cm (timeouttap timeouthold keytap keyhold)
+	(tap-hold $timeouttap $timeouthold 
+		(multi $keytap  @.tp-cm) 
+		$keyhold
+	)
+)
+
+(defalias
+  ;; call @.tp whenever you want to enter fast typing-layer
+  .tp (switch
+        ;;(lsft rsft) XX break ;; optional skip typing-layer activation for upper case keys might solves some FJ problems
+        ()  (multi
+              (layer-switch typing)
+              (on-idle 55 tap-vkey to-qwertz) ;; timeouts from 30 to 100 are wide spread
+            ) break
+      )
+  .spc-typing   (multi (layer-switch qwertz) spc) ;; expilcitly leave typing-layer when hitting `space` - this allows experimenting with higher idle timeouts
+
+  .tp-cm (switch
+        ;;(lsft rsft) XX break ;; optional skip typing-layer activation for upper case keys might solves some FJ problems
+        ()  (multi
+              (layer-switch typing-cm)
+              (on-idle 55 tap-vkey to-colemak) ;; timeouts from 30 to 100 are wide spread
+            ) break
+      )
+  .spc-typing-cm   (multi (layer-switch colemak-dh) spc) ;; expilcitly leave typing-layer when hitting `space` - this allows experimenting with higher idle timeouts
+
+  caps-ext (tap-hold 200 200 esc (layer-while-held ext)) ;; for caps: esc for tap, ext for hold
+)
+
 
 ;; MacBook german keyboard layout
 ;;  ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬─────┐
@@ -61,47 +86,54 @@
 
 
 (defsrc
-  esc    F1     F2     F3     F4     F5     F6     F7     F8     F9    F10    F11    F12
-  ^       1      2      3      4      5      6      7      8      9      0      ß      ´     bspc
-  tab     q      w      e      r      t      z      u      i      o      p      ü      +
-  caps    a      s      d      f      g      h      j      k      l      ö      ä      #     ret
-  lsft    <      y      x      c      v      b      n      m      ,      .      -   rsft
 )
 
-(deflayer colemak-dh
-  (tap-hold 200 200 esc (layer-while-held ext)) F1     F2     F3     F4     F5     F6     F7     F8     F9    F10    F11    F12
-  ^       1      2      3      4      5      6      7      8      9      0      ß     ´     bspc
-  tab     q      w      f      p      b      j      l      u      y      ö      ü     +
-  (tap-hold 200 200 esc (multi lalt lctl lmet))
-  (t! charmod a ralt)
-  (t! charmod r lmet)
-  (t! charmod s lsft)
-  (t! charmod t lctl)
-  g   m
-  (t! charmod n rctl)
-  (t! charmod e rsft)
-  (t! charmod i rmet)
-  (t! charmod o ralt)
-  ä   #   ret
-  lsft    <     z      x      c      d      v      k      h      ,      .      -   rsft
+(deflayermap (colemak-dh)
+ esc (tap-hold 200 200 esc (layer-while-held ext))
+ q (multi q @.tp-cm) w (multi w @.tp-cm) e (multi f @.tp-cm) r (multi p @.tp-cm) t (multi b @.tp-cm) y (multi j @.tp-cm) u (multi l @.tp-cm) i (multi u @.tp-cm) o (multi z @.tp-cm) p (multi ; @.tp-cm)
+ caps (tap-hold 200 200 esc (multi lalt lctl lmet))
+ a (t! homerowmod-cm $tot 160 a ralt)
+ s (t! homerowmod-cm $tot 160 r lmet)
+ d (t! homerowmod-cm $tot 160 s lsft)
+ f (t! homerowmod-cm $tot 160 t lctl)
+ g (multi g @.tp-cm) h (multi m @.tp-cm)
+ j (t! homerowmod-cm $tot 160 n rctl)
+ k (t! homerowmod-cm $tot 160 e rsft)
+ l (t! homerowmod-cm $tot 160 i rmet)
+ ; (t! homerowmod-cm $tot 160 o ralt)
+ z (multi y @.tp-cm) x (multi x @.tp-cm) c (multi c @.tp-cm) v (multi d @.tp-cm) b (multi v @.tp-cm) n (multi k @.tp-cm) m (multi h @.tp-cm)
 )
 
 (deflayermap (qwertz)
-  esc (tap-hold 200 200 esc (layer-while-held ext)) 
-  caps (tap-hold 200 200 esc (multi lalt lctl lmet))
-  a (t! charmod a ralt)
-  s (t! charmod s lmet)
-  d (t! charmod d lsft)
-  f (t! charmod f lctl)
-  j (t! charmod j rctl)
-  k (t! charmod k rsft)
-  l (t! charmod l rmet)
-  ö (t! charmod ö ralt)
+ ;; define home row mods (they act as typing-layer triggers, too )
+ esc (tap-hold 200 200 esc (layer-while-held ext))
+ caps (tap-hold 200 200 esc (multi lalt lctl lmet))
+ q (multi q @.tp) w (multi w @.tp) e (multi e @.tp) r (multi r @.tp) t (multi t @.tp) y (multi y @.tp) u (multi u @.tp) i (multi i @.tp) o (multi o @.tp) p (multi p @.tp)
+ a (t! homerowmod $tot 160 a ralt)
+ s (t! homerowmod $tot 160 s lmet)
+ d (t! homerowmod $tot 160 d lsft)
+ f (t! homerowmod $tot 160 f lctl)
+ g (multi g @.tp) h (multi h @.tp)
+ j (t! homerowmod $tot 160 j rctl)
+ k (t! homerowmod $tot 160 k rsft)
+ l (t! homerowmod $tot 160 l rmet)
+ ; (t! homerowmod $tot 160 ; ralt)
+ z (multi z @.tp) x (multi x @.tp) c (multi c @.tp) v (multi v @.tp) b (multi b @.tp) n (multi n @.tp) m (multi m @.tp) 
+)
+
+(deflayermap (typing) 
+ caps XX ;; key deactivations of caps
+ a a  b b  c c  d d  e e  f f  g g  h h  i i  j j  k k  l l  m m  n n  o o  p p  q q  r r  s s  t t  u u  v v  w w  x x  y z  z y 
+)
+
+(deflayermap (typing-cm) 
+ caps XX ;; key deactivations of caps
+ a a  b v  c c  d s  e f  f t  g m  h m  i u  j n  k e  l i  m h  n k  o z  p ;  q q  r p  s r  t b  u l  v d  w w  x x  y z  z y  ; o
 )
 
 (deflayermap (ext)
-  1 (layer-switch colemak-dh)
-  2 (layer-switch qwertz)
+  1 (layer-switch colemak-dh)   ;; 2 : Colemak-DH with Homerow Mods
+  2 (layer-switch qwertz)       ;; 1 : Homerow Mods only
   rsft (caps-word-custom-toggle
     2000
     (a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9 lsft)
