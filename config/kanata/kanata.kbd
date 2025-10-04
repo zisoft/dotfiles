@@ -30,7 +30,7 @@
   (switch
     ((key-timing 3 less-than 250)) $char break
     ;; () (tap-hold-release-timeout 200 400 $char $mod $char) break
-    () (tap-hold 200 400 $char $mod) break
+    () (tap-hold 220 160 $char $mod) break
   )
 )
 
