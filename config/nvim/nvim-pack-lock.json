@@ -1,0 +1,50 @@
+{
+  "plugins": {
+    "LuaSnip": [],
+    "auto-session": {
+      "rev": "517a757"
+    },
+    "blink.cmp": {
+      "version": "1.0.0 - 2.0.0"
+    },
+    "flash.nvim": {
+      "rev": "2febce6"
+    },
+    "gitsigns.nvim": [],
+    "mason-lspconfig.nvim": {
+      "rev": "6bdb14f"
+    },
+    "mason-tool-installer.nvim": [],
+    "mason.nvim": [],
+    "mini.ai": [],
+    "mini.icons": [],
+    "mini.statusline": [],
+    "mini.surround": {
+      "rev": "444e155"
+    },
+    "nord.nvim": [],
+    "nvim": {
+      "rev": "af58927"
+    },
+    "nvim-dap": {
+      "rev": "881f7dc"
+    },
+    "nvim-dap-ui": [],
+    "nvim-dap-virtual-text": [],
+    "nvim-nio": [],
+    "nvim-treesitter": {
+      "version": "'master'"
+    },
+    "oil.nvim": [],
+    "plenary.nvim": [],
+    "smart-splits.nvim": {
+      "rev": "acbfa16"
+    },
+    "snacks.nvim": {
+      "rev": "dae80fb"
+    },
+    "todo-comments.nvim": {
+      "rev": "19d461d"
+    }
+  }
+}

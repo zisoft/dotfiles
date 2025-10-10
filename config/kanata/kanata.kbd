@@ -3,14 +3,15 @@
 ;; It uses homerow mods (HMR) as described here:
 ;;    https://github.com/jtroo/kanata/discussions/1455
 ;;
-;; The caps key acts in 3 ways:
+;; The caps key acts in 2 ways:
 ;;   tap:        esc
 ;;   hold:       super-key (ctrl-option-cmd)
-;;   double-tap: capsword
 ;;
 ;; Esc is for layer-switching:
 ;;   1    - Colemak-DH with HMR
 ;;   2    - QWERTZ layer with HMR (I am on a german keyboard)
+;;
+;; The left shift key acts as capsword
 ;;
 
 (defcfg
@@ -87,7 +88,7 @@
   (tap-hold 200 200 esc (layer-while-held ext)) F1     F2     F3     F4     F5     F6     F7     F8     F9    F10    F11    F12
   ^       1      2      3      4      5      6      7      8      9      0      ß     ´     bspc
   tab     q      w      f      p      b      j      l      u      y      ö      ü     +
-  (tap-hold 200 200 (tap-dance 200 (esc @capsword)) @super)
+  (tap-hold 200 200 esc @super)  
   (t! charmod a ralt)
   (t! charmod r lmet)
   (t! charmod s lsft)
@@ -98,12 +99,12 @@
   (t! charmod i rmet)
   (t! charmod o ralt)
   ä   #   ret
-  lsft    <     z      x      c      d      v      k      h      ,      .      -   rsft
+  @capsword    <     z      x      c      d      v      k      h      ,      .      -   rsft
 )
 
 (deflayermap (qwertz)
   esc (tap-hold 200 200 esc (layer-while-held ext)) 
-  caps (tap-hold 200 200 (tap-dance 200 (esc @capsword)) @super)
+  caps (tap-hold 200 200 esc @super)  
   a (t! charmod a ralt)
   s (t! charmod s lmet)
   d (t! charmod d lsft)
@@ -112,6 +113,7 @@
   k (t! charmod k rsft)
   l (t! charmod l rmet)
   ö (t! charmod ö ralt)
+  lsft @capsword
 )
 
 (deflayermap (ext)
