@@ -32,6 +32,9 @@ default-root-container-orientation = 'auto'
 # Fallback value (if you omit the key): on-focused-monitor-changed = []
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
+# Mouse lazily follows any focus (window or workspace) 
+on-focus-changed = ['move-mouse window-lazy-center']
+
 # You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
 # Useful if you don't use this macOS feature, but accidentally hit cmd-h or cmd-ctrl-cmd-alt-h key
 # Also see: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
@@ -57,6 +60,24 @@ automatically-unhide-macos-hidden-apps = true
     outer.bottom =     5
     outer.top =        5
     outer.right =      5
+
+# Automatically move applications to their workspaces
+[[on-window-detected]]
+    if.app-id = 'com.github.wez.wezterm'
+    run = 'move-node-to-workspace T' 
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.finder'
+    run = 'move-node-to-workspace F' 
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.Safari'
+    run = 'move-node-to-workspace B' 
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.mail'
+    run = 'move-node-to-workspace M' 
+
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -126,10 +147,10 @@ automatically-unhide-macos-hidden-apps = true
     ctrl-cmd-alt-shift-2 = 'move-node-to-workspace 2'
     ctrl-cmd-alt-shift-3 = 'move-node-to-workspace 3'
     ctrl-cmd-alt-shift-4 = 'move-node-to-workspace 4'
-    ctrl-cmd-alt-shift-b = 'move-node-to-workspace B'
-    ctrl-cmd-alt-shift-f = 'move-node-to-workspace F'
-    ctrl-cmd-alt-shift-m = 'move-node-to-workspace M'
-    ctrl-cmd-alt-shift-t = 'move-node-to-workspace T'
+    ctrl-cmd-alt-shift-b = 'move-node-to-workspace B' # Browser
+    ctrl-cmd-alt-shift-f = 'move-node-to-workspace F' # Finder
+    ctrl-cmd-alt-shift-m = 'move-node-to-workspace M' # Mail
+    ctrl-cmd-alt-shift-t = 'move-node-to-workspace T' # Terminal
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     ctrl-cmd-alt-tab = 'workspace-back-and-forth'
