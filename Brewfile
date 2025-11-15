@@ -1,4 +1,5 @@
 tap "homebrew/core"
+tap "koekeishiya/formulae"
 tap "nikitabobko/tap"
 brew "gettext"
 brew "glib"
@@ -30,6 +31,7 @@ brew "libavif"
 brew "gh"
 brew "git"
 brew "gmic"
+brew "pkgconf"
 brew "gphoto2"
 brew "gtk+3"
 brew "gtk-mac-integration"
@@ -56,9 +58,10 @@ brew "ninja"
 brew "oh-my-posh"
 brew "osm-gps-map"
 brew "perl"
-brew "pkgconf"
 brew "portmidi"
 brew "pugixml"
+brew "pygobject3"
+brew "python@3.14"
 brew "ripgrep"
 brew "stow"
 brew "tmux"
@@ -94,8 +97,6 @@ cask "visual-studio-code"
 cask "vlc"
 cask "wezterm"
 mas "AdGuard for Safari", id: 1440147259
-mas "Affinity Designer 2", id: 1616831348
-mas "Affinity Photo 2", id: 1616822987
 mas "AlignmentForXcode", id: 1168397789
 mas "Amphetamine", id: 937984704
 mas "Bitwarden", id: 1352778147

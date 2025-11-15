@@ -22,7 +22,7 @@ dapui.setup({
     },
     {
       position = "bottom",
-      size = 10,
+      size = 12,
       elements = {
         { id = "repl", size = 1.0, },
         -- { id = "console", size = 0.3, },  -- console is useless as all output goes to REPL

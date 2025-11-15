@@ -114,3 +114,6 @@ alias sync_pics_synnas_philip='rsync -av --delete --delete-excluded --exclude-fr
 # alias sync_music_synnas='rsync -av --delete --delete-excluded --exclude-from='/Users/mario/.rsync_excludes' ~/Music/ -e "ssh -p 222" mario@zisoft-synnas:~//Music'
 # alias sync_music_synnas_philip='rsync -av --delete --delete-excluded --exclude-from='/Users/mario/.rsync_excludes' ~/Music/ -e "ssh -p 222" mario@philip.zisoft.de:~/Music'
 
+# Python
+export PATH=$(brew --prefix python)/libexec/bin:$PATH
+

@@ -1,8 +1,7 @@
 git:
-  paging:
-    colorArg: always
-    # pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
-
+  pagers:
+    - colorArg: always
+      # pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
 gui:
   theme:
     # catppuccin frappe with blue accent
@@ -25,7 +24,5 @@ gui:
       - '#c6d0f5'
     searchingActiveBorderColor:
       - '#e5c890'
-
   authorColors:
     '*': '#babbf1'
-

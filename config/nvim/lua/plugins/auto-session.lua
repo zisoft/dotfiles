@@ -28,9 +28,6 @@ require("auto-session").setup({
       if vim.fn.getcwd() == "/Users/mario/src/darktable" then
         vim.cmd("set makeprg=ninja\\ install\\ -C\\ ./build")
         vim.keymap.set("n", "<leader>db", "<cmd>!../debug_build.sh<CR>", { desc = "darktable debug build" })
-      elseif vim.fn.getcwd() == "/Users/mario/src/dt-dterrahe" then
-        vim.cmd("set makeprg=ninja\\ install\\ -C\\ ./build")
-        vim.keymap.set("n", "<leader>db", "<cmd>!../debug_build_dterrahe.sh<CR>", { desc = "darktable debug build dterrahe" })
       end
     end,
   },

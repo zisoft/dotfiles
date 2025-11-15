@@ -1,27 +1,42 @@
 {
   "plugins": {
     "CopilotChat.nvim": {
-      "rev": "f68deee",
+      "rev": "ce48533",
       "src": "https://github.com/CopilotC-Nvim/CopilotChat.nvim"
     },
     "LuaSnip": {
-      "rev": "21e9fec"
+      "rev": "3732756"
     },
-    "auto-session": [],
+    "auto-session": {
+      "rev": "292492a"
+    },
     "blink.cmp": {
+      "rev": "b19413d",
       "version": "1.0.0 - 2.0.0"
     },
-    "gitsigns.nvim": [],
-    "mini.ai": [],
-    "mini.icons": [],
-    "mini.statusline": [],
-    "mini.surround": [],
+    "gitsigns.nvim": {
+      "rev": "20ad441"
+    },
+    "mini.ai": {
+      "rev": "0d3c9cf"
+    },
+    "mini.icons": {
+      "rev": "ff2e4f1"
+    },
+    "mini.statusline": {
+      "rev": "1491990"
+    },
+    "mini.surround": {
+      "rev": "88c5229"
+    },
     "nord.nvim": {
       "rev": "07647ad"
     },
-    "nvim": [],
+    "nvim": {
+      "rev": "da33755"
+    },
     "nvim-dap": {
-      "rev": "6782b09"
+      "rev": "b38f7d3"
     },
     "nvim-dap-ui": [],
     "nvim-dap-virtual-text": [],
@@ -30,15 +45,17 @@
       "version": "'master'"
     },
     "oil.nvim": {
-      "rev": "200df01"
+      "rev": "7e1cd77"
     },
     "plenary.nvim": [],
     "smart-splits.nvim": {
-      "rev": "698df47"
+      "rev": "0fddd17"
     },
     "snacks.nvim": {
-      "rev": "454ba02"
+      "rev": "3c5c23b"
     },
-    "todo-comments.nvim": []
+    "todo-comments.nvim": {
+      "rev": "31e3c38"
+    }
   }
 }

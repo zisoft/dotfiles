@@ -19,9 +19,9 @@
   ;; NOTE: This does not work after sleep, see:
   ;;   https://github.com/jtroo/kanata/issues/1357 
   ;;
-  macos-dev-names-include (
-    "Apple Internal Keyboard / Trackpad"
-  )
+  ;;  macos-dev-names-include (
+  ;;    "Apple Internal Keyboard / Trackpad"
+  ;;  )
 
   process-unmapped-keys yes
   concurrent-tap-hold yes
