@@ -1,1 +1,3 @@
 ApplicationSupport/lazygit/state.yml
+config/zellij/*.bak*
+
