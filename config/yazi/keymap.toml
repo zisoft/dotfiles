@@ -1,3 +1,6 @@
-[[mgr.prepend_keymap]]
-on = "<C-p>"
-run = 'shell -- qlmanage -p "$@"'
+[mgr]
+prepend_keymap = [
+  { on = "d",         run = "remove --permanently",        desc = "Permanently delete selected files" },
+  { on = "p",         run = "paste --force",               desc = "Paste yanked files (overwrite if the destination exists)" },
+  { on = "<C-p>",     run = 'shell -- qlmanage -p "$@"',   desc = "Preview file with macOS quicklook" },
+]

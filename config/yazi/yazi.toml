@@ -1,3 +1,2 @@
 [mgr]
-ratio          = [ 2, 4, 3 ]
-sort_by        = "natural"
+ratio = [3,4,5]
