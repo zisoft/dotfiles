@@ -1,6 +1,3 @@
-[plugin]
-deps = []
-
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-frappe"
 rev = "3edeb49"

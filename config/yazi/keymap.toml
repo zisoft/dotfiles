@@ -1,5 +1,6 @@
 [mgr]
 prepend_keymap = [
-  { on = [ "g", "s" ],       run = "cd ~/src",         desc = "Go ~/src" },
-  { on = "<C-p>",            run = 'shell -- qlmanage -p "$@"',   desc = "Preview file with macOS quicklook" },
+  { on = [ "g", "o" ],  run = "arrow top", desc = "Go to top" },
+  { on = [ "g", "s" ],  run = "cd ~/src",         desc = "Go ~/src" },
+  { on = "<C-p>",       run = 'shell -- qlmanage -p "$@"',   desc = "Preview file with macOS quicklook" },
 ]
