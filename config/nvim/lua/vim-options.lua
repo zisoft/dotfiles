@@ -25,7 +25,6 @@ vim.o.guicursor = ""
 vim.o.clipboard = "unnamedplus"
 
 vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
 
 vim.diagnostic.config({ virtual_text = true })
 

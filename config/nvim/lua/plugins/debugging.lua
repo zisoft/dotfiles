@@ -88,4 +88,5 @@ vim.keymap.set("n", "<leader>lp", function()
   dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
 end, { desc = "Debugger set logpoint" })
 
-vim.keymap.set("n", "<leader>cd", dapui.close, { desc = "Debugger close debugger" })
+vim.keymap.set("n", "<leader>dc", dapui.close, { desc = "Debugger close debugger" })
+vim.keymap.set("n", "<leader>di", dapui.eval, { desc = "Debugger eval variable" })

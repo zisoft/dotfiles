@@ -95,6 +95,8 @@ source $HOME/.secrets
 
 export EDITOR=nvim
 
+export GSETTINGS_SCHEMA_DIR=$(brew --prefix)/share/glib-2.0/schemas/
+
 # Aliases
 alias ls='ls --color'
 alias ll='ls -lh'

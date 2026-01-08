@@ -1,7 +1,7 @@
 {
   "plugins": {
     "CopilotChat.nvim": {
-      "rev": "df5376c132382dd47e3e552612940cbf25b3580c",
+      "rev": "9db5d3eaafe9fc3c91ce9ecfc416de2798982487",
       "src": "https://github.com/CopilotC-Nvim/CopilotChat.nvim"
     },
     "LuaSnip": {
@@ -18,7 +18,7 @@
       "version": "1.0.0 - 2.0.0"
     },
     "gitsigns.nvim": {
-      "rev": "5813e4878748805f1518cee7abb50fd7205a3a48",
+      "rev": "30e5c516f03e0a0a4f71300c52abad481ee90337",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "mini.ai": {
@@ -26,15 +26,15 @@
       "src": "https://github.com/echasnovski/mini.ai"
     },
     "mini.icons": {
-      "rev": "ff2e4f1",
+      "rev": "efc85e42262cd0c9e1fdbf806c25cb0be6de115c",
       "src": "https://github.com/echasnovski/mini.icons"
     },
     "mini.statusline": {
-      "rev": "1491990",
+      "rev": "3e96596ebe51b899874d8174409cdc4f3c749d9a",
       "src": "https://github.com/echasnovski/mini.statusline"
     },
     "mini.surround": {
-      "rev": "88c5229",
+      "rev": "cc7b9d0a056b5fa6915ffac1cb91f29bf7c96f69",
       "src": "https://github.com/echasnovski/mini.surround"
     },
     "nord.nvim": {
@@ -42,11 +42,11 @@
       "src": "https://github.com/gbprod/nord.nvim"
     },
     "nvim": {
-      "rev": "193e123cdbc4dd3e86db883d55349e9587f0ded6",
+      "rev": "6efc53e42cfc97700f19043105bf73ba83c4ae7d",
       "src": "https://github.com/catppuccin/nvim"
     },
     "nvim-dap": {
-      "rev": "5860c7c501eb428d3137ee22c522828d20cca0b3",
+      "rev": "cdfd55a133f63228c55f91378f12908cb2a78ded",
       "src": "https://github.com/mfussenegger/nvim-dap"
     },
     "nvim-dap-ui": {
@@ -67,16 +67,12 @@
       "version": "'master'"
     },
     "oil.nvim": {
-      "rev": "cbcb3f997f6f261c577b943ec94e4ef55108dd95",
+      "rev": "81b8a91735ad5cd24a6b3137f14a89f19176364f",
       "src": "https://github.com/stevearc/oil.nvim"
     },
     "plenary.nvim": {
       "rev": "b9fd5226c2f76c951fc8ed5923d85e4de065e509",
       "src": "https://github.com/nvim-lua/plenary.nvim"
-    },
-    "smart-splits.nvim": {
-      "rev": "076426b93a0654b6e1467258514dd9021a5e33e2",
-      "src": "https://github.com/mrjones2014/smart-splits.nvim"
     },
     "snacks.nvim": {
       "rev": "fe7cfe9800a182274d0f868a74b7263b8c0c020b",

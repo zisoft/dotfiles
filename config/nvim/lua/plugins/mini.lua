@@ -18,7 +18,8 @@ local statusline = function()
   local diff          = MiniStatusline.section_diff({ trunc_width = 75 })
   local filename      = MiniStatusline.section_filename({ trunc_width = 140 })
   local fileinfo      = MiniStatusline.section_fileinfo({ trunc_width = 40 })
-  local location      = MiniStatusline.section_location({ trunc_width = 1000 })
+  -- local location      = MiniStatusline.section_location({ trunc_width = 1000 })
+  local location      = '%l│%2v (%P)'
 
   -- cut off file size from fileinfo, don't need it
   local last_space = fileinfo:match(".*()%s+")

@@ -1,4 +1,5 @@
 ---@diagnostic disable: undefined-global
+
 vim.pack.add({ "https://github.com/folke/snacks.nvim" })
 
 require("snacks").setup({
@@ -12,13 +13,22 @@ require("snacks").setup({
     folds = { open = true, },
   },
 
-  picker = { enabled = true, },
+  picker = {
+    enabled = true,
+    win = {
+      input = {
+        keys = {
+          ["<C-h>"] = { "toggle_hidden", mode = { "i", "n" } },
+          ["<C-i>"] = { "toggle_ignored", mode = { "i", "n" } },
+        },
+      },
+    },
+  },
 
   styles = {
     notification = { wo = { wrap = true } },
     notification_history = { width = 0.8, wo = { wrap = true } },
   },
-
 })
 
 vim.keymap.set("n", "<leader>n", function() Snacks.notifier.show_history() end, { desc = "Notification History" })
@@ -47,11 +57,13 @@ vim.keymap.set("n", "<leader>so", function() Snacks.picker.lsp_symbols() end, { 
 
 -- gh cli
 vim.keymap.set("n", "<leader>ghi", function() Snacks.picker.gh_issue() end, { desc = "GitHub Issues (open)" })
-vim.keymap.set("n", "<leader>ghI", function() Snacks.picker.gh_issue({ state = "all" }) end, { desc = "GitHub Issues (all)" })
+vim.keymap.set("n", "<leader>ghI", function() Snacks.picker.gh_issue({ state = "all" }) end,
+  { desc = "GitHub Issues (all)" })
 vim.keymap.set("n", "<leader>ghp", function() Snacks.picker.gh_pr() end, { desc = "GitHub Pull Requests (open)" })
-vim.keymap.set("n", "<leader>ghP", function() Snacks.picker.gh_pr({ state = "all" }) end, { desc = "GitHub Pull Requests (all)" })
+vim.keymap.set("n", "<leader>ghP", function() Snacks.picker.gh_pr({ state = "all" }) end,
+  { desc = "GitHub Pull Requests (all)" })
 
- -- lazygit
+-- lazygit
 vim.keymap.set("n", "<leader>lg", function() Snacks.lazygit() end, { desc = "LazyGit" })
 
 -- terminal

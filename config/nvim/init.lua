@@ -20,7 +20,6 @@ require("plugins.copilot")
 require("plugins.blink")
 
 -- require("plugins.tmux-navigator")
-require("plugins.smart-splits")
 
 vim.keymap.set("n", "<leader>pu", function() vim.pack.update() end, { desc = "Update packages" })
 
