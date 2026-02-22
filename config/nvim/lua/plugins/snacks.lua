@@ -37,11 +37,12 @@ vim.keymap.set("n", "<leader>n", function() Snacks.notifier.show_history() end, 
 vim.keymap.set("n", "<leader>fb", function() Snacks.picker.buffers() end, { desc = "Buffers" })
 vim.keymap.set("n", "<leader>ff", function() Snacks.picker.files() end, { desc = "Find Files" })
 vim.keymap.set("n", "<leader>fg", function() Snacks.picker.grep({ exclude = { "*.po" } }) end, { desc = "Grep" })
+vim.keymap.set("n", "<leader>fG", function() Snacks.picker.grep_buffers() end, { desc = "Grep Buffers" })
 vim.keymap.set("n", "<leader>fr", function() Snacks.picker.recent() end, { desc = "Recent" })
 
 -- search
 vim.keymap.set("n", '<leader>s"', function() Snacks.picker.registers() end, { desc = "Registers" })
-vim.keymap.set("n", '<leader>s/', function() Snacks.picker.search_history() end, { desc = "Search History" })
+vim.keymap.set("n", '<leader>s/', function() Snacks.picker.lines() end, { desc = "Search Lines in current buffe " })
 vim.keymap.set("n", "<leader>sa", function() Snacks.picker.autocmds() end, { desc = "Autocmds" })
 vim.keymap.set("n", "<leader>sc", function() Snacks.picker.command_history() end, { desc = "Command History" })
 vim.keymap.set("n", "<leader>sC", function() Snacks.picker.commands() end, { desc = "Commands" })
@@ -54,6 +55,7 @@ vim.keymap.set("n", "<leader>sl", function() Snacks.picker.loclist() end, { desc
 vim.keymap.set("n", "<leader>sm", function() Snacks.picker.marks() end, { desc = "Marks" })
 vim.keymap.set("n", "<leader>sq", function() Snacks.picker.qflist() end, { desc = "Quickfix List" })
 vim.keymap.set("n", "<leader>so", function() Snacks.picker.lsp_symbols() end, { desc = "LSP symbols" })
+vim.keymap.set("n", "<leader>sr", function() Snacks.picker.lsp_references() end, { desc = "LSP references" })
 
 -- gh cli
 vim.keymap.set("n", "<leader>ghi", function() Snacks.picker.gh_issue() end, { desc = "GitHub Issues (open)" })

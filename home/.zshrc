@@ -106,8 +106,6 @@ alias ..='cd ..'
 
 alias brewup='brew update; brew upgrade; brew upgrade --cask; brew cleanup; brew doctor'
 
-alias sync_pics_zisoft='rsync -r -t -v --delete --delete-excluded --exclude-from='/Users/mario/.rsync_excludes' ~/workspace/october2/storage/app/media/ -e ssh zisoft.de:/www/htdocs/w0107c10/october2/storage/app/media/'
-
 alias sync_pics='rsync -av --delete --delete-excluded --exclude-from='/Users/mario/.rsync_excludes' ~/Pictures/ /Volumes/Marios/Pictures'
 alias sync_pics_synnas='rsync -av --delete --delete-excluded --exclude-from='/Users/mario/.rsync_excludes' ~/Pictures/ -e "ssh -p 222" mario@zisoft-synnas:~/Pictures'
 alias sync_pics_synnas_philip='rsync -av --delete --delete-excluded --exclude-from='/Users/mario/.rsync_excludes' ~/Pictures/ -e "ssh -p 222" mario@philip.zisoft.de:~/Pictures'
