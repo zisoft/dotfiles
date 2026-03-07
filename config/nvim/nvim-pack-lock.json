@@ -18,7 +18,7 @@
       "version": "1.0.0 - 2.0.0"
     },
     "gitsigns.nvim": {
-      "rev": "9f3c6dd7868bcc116e9c1c1929ce063b978fa519",
+      "rev": "6d72ba88c40f4c55c01f8a0558aa532cee108486",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "mini.ai": {

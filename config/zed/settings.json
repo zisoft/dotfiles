@@ -1,0 +1,73 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "vim": {
+    "toggle_relative_line_numbers": true
+  },
+  "icon_theme": "Catppuccin Frappé",
+  "remove_trailing_whitespace_on_save": false,
+  "format_on_save": "off",
+  "project_panel": {
+    "hide_gitignore": false
+  },
+  "indent_guides": {
+    "background_coloring": "disabled",
+    "coloring": "indent_aware",
+    "active_line_width": 1,
+    "enabled": true
+  },
+  "cursor_shape": "bar",
+  "cursor_blink": false,
+  "show_whitespaces": "all",
+  "use_system_window_tabs": false,
+  "tab_bar": {
+    "show_tab_bar_buttons": true,
+    "show_nav_history_buttons": true
+  },
+  "tab_size": 2,
+  "git": {
+    "inline_blame": {
+      "enabled": false,
+    },
+  },
+  "on_last_window_closed": "quit_app",
+  "tabs": {
+    "show_close_button": "hover",
+    "close_position": "right",
+    "file_icons": true,
+    "git_status": true,
+  },
+  "diagnostics": {
+    "inline": {
+      "enabled": true
+    },
+    "button": false,
+  },
+  "status_bar": {
+    "active_encoding_button": "enabled",
+  },
+  "git_panel": {
+    "tree_view": false,
+  },
+  "show_wrap_guides": false,
+  "buffer_font_family": "JetBrainsMonoNL Nerd Font",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+  "session": {
+    "trust_all_worktrees": true,
+  },
+  "vim_mode": true,
+  "buffer_font_size": 13.7,
+  "buffer_line_height": {
+    "custom": 1.3,
+  },
+  "theme": "Catppuccin Frappé",
+}
