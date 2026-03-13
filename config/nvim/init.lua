@@ -15,7 +15,7 @@ require("plugins.gitsigns")
 require("plugins.debugging")
 require("plugins.todo-comments")
 require("plugins.snippets")
-require("plugins.copilot")
+require("plugins.opencode")
 
 require("plugins.blink")
 

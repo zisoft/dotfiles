@@ -1,4 +1,3 @@
-tap "homebrew/cask"
 tap "homebrew/core"
 tap "koekeishiya/formulae"
 tap "nikitabobko/tap"
@@ -6,14 +5,12 @@ brew "gettext"
 brew "glib"
 brew "jpeg-turbo"
 brew "icu4c@78"
-brew "icu4c@77"
 brew "librsvg"
 brew "adwaita-icon-theme"
 brew "brotli"
 brew "little-cms2"
 brew "openexr"
 brew "jpeg-xl"
-brew "webp"
 brew "c-ares"
 brew "node"
 brew "bitwarden-cli"
@@ -22,6 +19,7 @@ brew "cmake"
 brew "cmatrix"
 brew "curl"
 brew "libavif"
+brew "webp"
 brew "composer"
 brew "coreutils"
 brew "desktop-file-utils"
@@ -37,12 +35,14 @@ brew "gh"
 brew "git"
 brew "gmic"
 brew "pkgconf"
+brew "python@3.14"
 brew "gphoto2"
 brew "libheif"
 brew "graphicsmagick"
 brew "gtk+3"
 brew "gtk-mac-integration"
 brew "gtk4"
+brew "icu4c@77"
 brew "imagemagick"
 brew "intltool"
 brew "iso-codes"
@@ -52,6 +52,7 @@ brew "just"
 brew "kanata"
 brew "lazygit"
 brew "lensfun"
+brew "libarchive"
 brew "libraw"
 brew "libsecret"
 brew "libsoup"
@@ -59,7 +60,6 @@ brew "lua"
 brew "lua-language-server"
 brew "mas"
 brew "ninja"
-brew "python@3.14"
 brew "meson"
 brew "neovim"
 brew "oh-my-posh"
@@ -115,8 +115,8 @@ mas "AdGuard Mini", id: 1440147259
 mas "AlignmentForXcode", id: 1168397789
 mas "Amphetamine", id: 937984704
 mas "Bitwarden", id: 1352778147
-mas "Channel Edit for LG TVs", id: 1230066515
 mas "DaVinci Resolve", id: 571213070
+mas "GarageBand", id: 682658836
 mas "iMovie", id: 408981434
 mas "iXLIFF", id: 944658897
 mas "Keynote", id: 409183694
@@ -124,4 +124,3 @@ mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "TaskPaper", id: 1090940630
 mas "Xcode", id: 497799835
-mas "XLIFFTool", id: 1074282695
