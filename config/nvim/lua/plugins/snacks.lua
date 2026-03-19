@@ -6,6 +6,7 @@ require("snacks").setup({
   indent = { enabled = true, animate = { enabled = false } },
   lazygit = { enabled = true, win = { position = "float" } },
   notifier = { enabled = true },
+  input = { enabled = true },
   -- terminal = { enabled = true, win = { position = "right" } },
 
   statuscolumn = {

@@ -117,3 +117,6 @@ alias sync_pics_synnas_philip='rsync -av --delete --delete-excluded --exclude-fr
 # Python
 export PATH=$(brew --prefix python)/libexec/bin:$PATH
 
+
+# opencode
+export PATH=/Users/mario/.opencode/bin:$PATH

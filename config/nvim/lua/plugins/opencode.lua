@@ -20,7 +20,7 @@ if _G.Snacks then
   -- }
 end
 
-local opencode_cmd = 'opencode --port'
+local opencode_cmd = "opencode --port"
 local snacks_terminal_opts = {
   win = {
     position = "right",
@@ -34,7 +34,6 @@ local snacks_terminal_opts = {
 
 vim.g.opencode_opts = {
   server = {
-    port = 41111,
     start = function()
       require('snacks.terminal').open(opencode_cmd, snacks_terminal_opts)
     end,

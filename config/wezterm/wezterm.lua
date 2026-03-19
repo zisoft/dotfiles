@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 
 wezterm.on("gui-startup", function(cmd)
   -- set startup Window position
-  wezterm.mux.spawn_window(cmd or { position = { x = 1400, y = 200 } })
+  wezterm.mux.spawn_window(cmd or { position = { x = 1300, y = 200 } })
 end)
 
 -- wezterm config

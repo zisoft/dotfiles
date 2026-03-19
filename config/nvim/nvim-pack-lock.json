@@ -13,7 +13,7 @@
       "src": "https://github.com/rmagatti/auto-session"
     },
     "blink.cmp": {
-      "rev": "4b18c32adef2898f95cdef6192cbd5796c1a332d",
+      "rev": "451168851e8e2466bc97ee3e026c3dcb9141ce07",
       "src": "https://github.com/saghen/blink.cmp",
       "version": "1.0.0 - 2.0.0"
     },
@@ -42,7 +42,7 @@
       "src": "https://github.com/gbprod/nord.nvim"
     },
     "nvim": {
-      "rev": "c4d475e4b5684747cde9b3f849186af7837d4397",
+      "rev": "384f304c8b04664c9e0091fbfb3923c5f97c1bcf",
       "src": "https://github.com/catppuccin/nvim"
     },
     "nvim-dap": {
@@ -71,7 +71,7 @@
       "src": "https://github.com/stevearc/oil.nvim"
     },
     "opencode.nvim": {
-      "rev": "8804ffb81f9784dcd0e9af43a2068fb55282c4dd",
+      "rev": "5067c80ee1f37b5f8a54244e184df44944175a84",
       "src": "https://github.com/nickjvandyke/opencode.nvim"
     },
     "plenary.nvim": {
@@ -79,7 +79,7 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "snacks.nvim": {
-      "rev": "9912042fc8bca2209105526ac7534e9a0c2071b2",
+      "rev": "a049339328e2599ad6e85a69fa034ac501e921b2",
       "src": "https://github.com/folke/snacks.nvim"
     },
     "todo-comments.nvim": {
