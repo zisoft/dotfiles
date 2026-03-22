@@ -55,6 +55,23 @@ dap.listeners.before.event_exited.dapui_config = function()
   dapui.close()
 end
 
+-- automatically scroll the REPL window
+dap.listeners.after.event_output["dapui_config"] = function(_, body)
+  local message = body.output
+  if message:find("Process %d+ exited with status") then
+    dapui.close()
+  end
+  vim.schedule(function()
+    for _, win in ipairs(vim.api.nvim_list_wins()) do
+      local buf = vim.api.nvim_win_get_buf(win)
+      if vim.bo[buf].filetype == "dap-repl" then
+        local last_line = vim.api.nvim_buf_line_count(buf)
+        pcall(vim.api.nvim_win_set_cursor, win, { last_line, 0 })
+      end
+    end
+  end)
+end
+
 vim.api.nvim_set_hl(0, 'DapStopped', { ctermbg = 0, fg = "#c6d0f5", bg = "#506373" })
 
 vim.fn.sign_define("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = "" })
