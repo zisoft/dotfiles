@@ -23,6 +23,15 @@ require("auto-session").setup({
     },
   },
 
+  pre_restore_cmds = {
+    function()
+      if vim.fn.getcwd() == "/Users/mario/src/darktable" then
+        print("leaving darktable")
+        vim.keymap.del("n", "<leader>db")
+      end
+    end
+  },
+
   post_restore_cmds = {
     function()
       if vim.fn.getcwd() == "/Users/mario/src/darktable" then

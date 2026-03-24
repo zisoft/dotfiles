@@ -15,11 +15,10 @@ require("plugins.gitsigns")
 require("plugins.debugging")
 require("plugins.todo-comments")
 require("plugins.snippets")
+require("plugins.smart-splits")
 require("plugins.opencode")
 
 require("plugins.blink")
-
--- require("plugins.tmux-navigator")
 
 vim.keymap.set("n", "<leader>pu", function() vim.pack.update() end, { desc = "Update packages" })
 

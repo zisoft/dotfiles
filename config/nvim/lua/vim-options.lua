@@ -23,7 +23,8 @@ vim.o.backup = false
 vim.o.writebackup = false
 vim.o.winborder = "rounded"
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,localoptions"
-vim.o.guicursor = "n-v-c:blink0"
+vim.o.listchars = "eol:$"
+-- vim.o.guicursor = "n-v-c:blink0"
 vim.o.clipboard = "unnamedplus"
 
 vim.g.mapleader = " "
