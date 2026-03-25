@@ -14,7 +14,7 @@
       "version": "1.0.0 - 2.0.0"
     },
     "gitsigns.nvim": {
-      "rev": "5c569562d9f9c98f12d684de5f37150e0ca1b12d",
+      "rev": "0a80125bace82d82847d40bc2c38a22d62c6dc2d",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "mini.ai": {
@@ -67,7 +67,7 @@
       "src": "https://github.com/stevearc/oil.nvim"
     },
     "opencode.nvim": {
-      "rev": "5067c80ee1f37b5f8a54244e184df44944175a84",
+      "rev": "4f4ff2c2a4bd979bf8f20a90e44be1b86855cfea",
       "src": "https://github.com/nickjvandyke/opencode.nvim"
     },
     "plenary.nvim": {

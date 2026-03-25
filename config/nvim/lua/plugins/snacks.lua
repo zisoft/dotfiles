@@ -69,6 +69,9 @@ vim.keymap.set("n", "<leader>ghP", function() Snacks.picker.gh_pr({ state = "all
 -- lazygit
 vim.keymap.set("n", "<leader>lg", function() Snacks.lazygit() end, { desc = "LazyGit" })
 
+-- Misc
+vim.keymap.set("n", "<leader>bd", function() Snacks.bufdelete() end, { desc = "Delete buffer" })
+
 -- terminal
 -- vim.keymap.set("n", "<C-T>", function() Snacks.terminal.open() end, { desc = "Terminal" })
 -- vim.keymap.set("t", "<C-h>", "<Cmd>wincmd h<CR>", { desc = "Terminal" })

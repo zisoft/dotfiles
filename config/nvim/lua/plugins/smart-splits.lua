@@ -6,14 +6,14 @@ require("smart-splits").setup({
 })
 
 -- resizing splits
-vim.keymap.set('n', '<M-C-h>', require('smart-splits').resize_left)
-vim.keymap.set('n', '<M-C-j>', require('smart-splits').resize_down)
-vim.keymap.set('n', '<M-C-k>', require('smart-splits').resize_up)
-vim.keymap.set('n', '<M-C-l>', require('smart-splits').resize_right)
+vim.keymap.set({'n', 't'}, '<M-C-h>', require('smart-splits').resize_left)
+vim.keymap.set({'n', 't'}, '<M-C-j>', require('smart-splits').resize_down)
+vim.keymap.set({'n', 't'}, '<M-C-k>', require('smart-splits').resize_up)
+vim.keymap.set({'n', 't'}, '<M-C-l>', require('smart-splits').resize_right)
 
 -- moving between splits
-vim.keymap.set('n', '<C-h>', require('smart-splits').move_cursor_left)
-vim.keymap.set('n', '<C-j>', require('smart-splits').move_cursor_down)
-vim.keymap.set('n', '<C-k>', require('smart-splits').move_cursor_up)
-vim.keymap.set('n', '<C-l>', require('smart-splits').move_cursor_right)
-vim.keymap.set('n', '<C-\\>', require('smart-splits').move_cursor_previous)
+vim.keymap.set({'n', 't'}, '<C-h>', require('smart-splits').move_cursor_left)
+vim.keymap.set({'n', 't'}, '<C-j>', require('smart-splits').move_cursor_down)
+vim.keymap.set({'n', 't'}, '<C-k>', require('smart-splits').move_cursor_up)
+vim.keymap.set({'n', 't'}, '<C-l>', require('smart-splits').move_cursor_right)
+vim.keymap.set({'n', 't'}, '<C-\\>', require('smart-splits').move_cursor_previous)
