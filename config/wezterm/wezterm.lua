@@ -81,7 +81,7 @@ config.keys = {
     action = wezterm.action.PromptInputLine {
       description = 'Enter new name for tab',
       action = wezterm.action_callback(
-        function(window, pane, line)
+        function(window, _, line)
           if line then
             window:active_tab():set_title(line)
           end

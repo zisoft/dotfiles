@@ -26,7 +26,7 @@ require("auto-session").setup({
   pre_restore_cmds = {
     function()
       if vim.fn.getcwd() == "/Users/mario/src/darktable" then
-        print("leaving darktable")
+        vim.cmd("set makeprg=''")
         vim.keymap.del("n", "<leader>db")
       end
     end
