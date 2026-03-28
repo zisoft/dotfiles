@@ -14,7 +14,7 @@
       "version": "1.0.0 - 2.0.0"
     },
     "gitsigns.nvim": {
-      "rev": "a462f416e2ce4744531c6256252dee99a7d34a83",
+      "rev": "50c205548d8b037b7ff6378fca6d21146f0b6161",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "mini.ai": {
@@ -75,7 +75,7 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "smart-splits.nvim": {
-      "rev": "96afd5d3b029ac354aaa369fb33b4613a0bbf2f0",
+      "rev": "12426763591f06b865c20990d8423345ea96d44f",
       "src": "https://github.com/mrjones2014/smart-splits.nvim"
     },
     "snacks.nvim": {

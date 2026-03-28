@@ -1,7 +1,6 @@
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_STATE_HOME="$HOME/.local/state"
+# Use XDG dirs for completion and history files
+[ -d "$XDG_STATE_HOME"/zsh ] || mkdir -p "$XDG_STATE_HOME"/zsh
+[ -d "$XDG_CACHE_HOME"/zsh ] || mkdir -p "$XDG_CACHE_HOME"/zsh
 
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -22,7 +21,7 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
 # Load completions
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -d "${XDG_CACHE_HOME}/zsh/zcompdump"
 
 zinit cdreplay -q
 
@@ -35,10 +34,12 @@ bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
 # History
-HISTSIZE=5000
-HISTFILE=~/.zsh_history
+HISTSIZE=2000
+HISTFILE="$XDG_STATE_HOME"/zsh/history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
+
+# zsh options
 setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_space
@@ -51,6 +52,7 @@ setopt rmstarsilent
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' cache-path "$XDG_CACHE_HOME"/zsh/zcompcache
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:cd:*' fzf-preview 'ls --color $realpath'
@@ -61,7 +63,7 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
 # oh-my-posh prompt
-eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/mario.toml)"
+eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/ohmyposh/mario.toml)"
 
 # FZF
 export FZF_DEFAULT_OPTS=" \
@@ -71,55 +73,42 @@ export FZF_DEFAULT_OPTS=" \
 --color=selected-bg:#51576d \
 --color=border:#414559,label:#c6d0f5"
 
-# user scripts
-export PATH=$HOME/.local/bin:$PATH
-
 # homebrew ruby
 if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
   export PATH=/opt/homebrew/opt/ruby/bin:$PATH
   export PATH=`gem environment gemdir`/bin:$PATH
 fi
 
+# homebrew python
+if [ -d "/opt/homebrew/opt/python" ]; then
+  export PATH=$(brew --prefix python)/libexec/bin:$PATH
+fi
+
+# user executables
+export PATH=$HOME/.local/bin:$PATH
+
 # Yazi
 function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		builtin cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
 }
 
-# Language settings
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
+# aliases
+if [ -f "${XDG_CONFIG_HOME}/zsh/aliases" ]; then
+  source "${XDG_CONFIG_HOME}/zsh/aliases"
+fi
 
 # Secret things
-source $HOME/.secrets
-
-export EDITOR=nvim
+if [ -f "$HOME/.secrets" ]; then
+  source "$HOME/.secrets"
+fi
 
 export GSETTINGS_SCHEMA_DIR=$(brew --prefix)/share/glib-2.0/schemas/
 
-# Aliases
-alias ls='ls --color'
-alias ll='ls -lh'
-alias la='ls -alh'
-
-alias ..='cd ..'
-
-alias brewup='brew update; brew upgrade; brew upgrade --cask; brew cleanup; brew doctor'
-
-alias sync_pics='rsync -av --delete --delete-excluded --exclude-from='/Users/mario/.rsync_excludes' ~/Pictures/ /Volumes/Marios/Pictures'
-alias sync_pics_synnas='rsync -av --delete --delete-excluded --exclude-from='/Users/mario/.rsync_excludes' ~/Pictures/ -e "ssh -p 222" mario@zisoft-synnas:~/Pictures'
-alias sync_pics_synnas_philip='rsync -av --delete --delete-excluded --exclude-from='/Users/mario/.rsync_excludes' ~/Pictures/ -e "ssh -p 222" mario@philip.zisoft.de:~/Pictures'
-
-# alias sync_music='rsync -av --delete --delete-excluded --exclude-from='/Users/mario/.rsync_excludes' ~/Music/ /Volumes/Marios/Music'
-# alias sync_music_synnas='rsync -av --delete --delete-excluded --exclude-from='/Users/mario/.rsync_excludes' ~/Music/ -e "ssh -p 222" mario@zisoft-synnas:~//Music'
-# alias sync_music_synnas_philip='rsync -av --delete --delete-excluded --exclude-from='/Users/mario/.rsync_excludes' ~/Music/ -e "ssh -p 222" mario@philip.zisoft.de:~/Music'
-
-# Python
-export PATH=$(brew --prefix python)/libexec/bin:$PATH
-
 # opencode
 export PATH=/Users/mario/.opencode/bin:$PATH
+

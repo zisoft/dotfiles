@@ -17,7 +17,7 @@ final_space = true
   newline = true
 
   [[blocks.segments]]
-    template = '{{ .Path }}'
+    template = '{{ .PWD }}'
     foreground = 'blue'
     background = 'transparent'
     type = 'path'
