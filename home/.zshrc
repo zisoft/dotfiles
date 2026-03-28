@@ -1,3 +1,8 @@
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
@@ -67,7 +72,6 @@ export FZF_DEFAULT_OPTS=" \
 --color=border:#414559,label:#c6d0f5"
 
 # user scripts
-export PATH=$PATH:$HOME/bin
 export PATH=$HOME/.local/bin:$PATH
 
 # homebrew ruby
@@ -93,7 +97,6 @@ export LANG=en_US.UTF-8
 # Secret things
 source $HOME/.secrets
 
-export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR=nvim
 
 export GSETTINGS_SCHEMA_DIR=$(brew --prefix)/share/glib-2.0/schemas/
@@ -117,7 +120,6 @@ alias sync_pics_synnas_philip='rsync -av --delete --delete-excluded --exclude-fr
 
 # Python
 export PATH=$(brew --prefix python)/libexec/bin:$PATH
-
 
 # opencode
 export PATH=/Users/mario/.opencode/bin:$PATH
