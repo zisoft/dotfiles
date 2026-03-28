@@ -93,6 +93,7 @@ export LANG=en_US.UTF-8
 # Secret things
 source $HOME/.secrets
 
+export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR=nvim
 
 export GSETTINGS_SCHEMA_DIR=$(brew --prefix)/share/glib-2.0/schemas/
