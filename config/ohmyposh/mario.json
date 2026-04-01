@@ -1,0 +1,94 @@
+{
+  "version": 3,
+  "final_space": true,
+  "secondary_prompt": {
+    "template": "❯❯ ",
+    "foreground": "magenta",
+    "background": "transparent"
+  },
+  "transient_prompt": {
+    "template": "❯ ",
+    "background": "transparent",
+    "foreground_templates": [
+      "{{if gt .Code 0}}red{{end}}",
+      "{{if eq .Code 0}}magenta{{end}}"
+    ]
+  },
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "template": "{{ .Path }}",
+          "foreground": "blue",
+          "background": "transparent",
+          "type": "path",
+          "style": "plain",
+          "options": {
+            "style": "full"
+          },
+          "properties": {
+            "cache_duration": "none",
+            "style": "full"
+          }
+        },
+        {
+          "template": " {{ .HEAD }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>",
+          "foreground": "green",
+          "foreground_templates": [
+            "{{ if or (.Working.Changed) (.Staging.Changed) }}red{{end}}"
+          ],
+          "background": "transparent",
+          "type": "git",
+          "style": "plain",
+          "properties": {
+            "branch_icon": "\uE0A0",
+            "cache_duration": "none",
+            "commit_icon": "@",
+            "fetch_status": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "rprompt",
+      "overflow": "hidden",
+      "segments": [
+        {
+          "template": "{{ .FormattedMs }}",
+          "foreground": "yellow",
+          "background": "transparent",
+          "type": "executiontime",
+          "style": "plain",
+          "properties": {
+            "cache_duration": "none",
+            "threshold": 5000
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "template": "❯",
+          "background": "transparent",
+          "type": "text",
+          "style": "plain",
+          "foreground_templates": [
+            "{{if gt .Code 0}}red{{end}}",
+            "{{if eq .Code 0}}magenta{{end}}"
+          ],
+          "properties": {
+            "cache_duration": "none"
+          }
+        }
+      ]
+    }
+  ]
+}
+

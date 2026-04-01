@@ -14,7 +14,7 @@
       "version": "1.0.0 - 2.0.0"
     },
     "gitsigns.nvim": {
-      "rev": "50c205548d8b037b7ff6378fca6d21146f0b6161",
+      "rev": "0f00d07c2c3106ba6abd594ac1c17f211141b7b5",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "mini.ai": {
@@ -42,7 +42,7 @@
       "src": "https://github.com/catppuccin/nvim"
     },
     "nvim-dap": {
-      "rev": "2a8799ad91a1495c6bdf753f9b2179b3ff0f5bba",
+      "rev": "4f5deb110d9ff8994d96c21df95e2271d11214f9",
       "src": "https://github.com/mfussenegger/nvim-dap"
     },
     "nvim-dap-ui": {
@@ -67,7 +67,7 @@
       "src": "https://github.com/stevearc/oil.nvim"
     },
     "opencode.nvim": {
-      "rev": "4f4ff2c2a4bd979bf8f20a90e44be1b86855cfea",
+      "rev": "df533d6da724109bf08446392db860fdceddbd0c",
       "src": "https://github.com/nickjvandyke/opencode.nvim"
     },
     "plenary.nvim": {

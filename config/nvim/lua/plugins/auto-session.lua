@@ -25,7 +25,7 @@ require("auto-session").setup({
 
   pre_restore_cmds = {
     function()
-      if vim.fn.getcwd() == "/Users/mario/src/darktable" then
+      if vim.fn.getcwd():find("/src/darktable", 1, true) then
         vim.cmd("set makeprg=''")
         vim.keymap.del("n", "<leader>db")
       end
@@ -34,9 +34,9 @@ require("auto-session").setup({
 
   post_restore_cmds = {
     function()
-      if vim.fn.getcwd() == "/Users/mario/src/darktable" then
+      if vim.fn.getcwd():find("/src/darktable", 1, true) then
         vim.cmd("set makeprg=ninja\\ install\\ -C\\ ./build")
-        vim.keymap.set("n", "<leader>db", "<cmd>!../debug_build.sh<CR>", { desc = "darktable debug build" })
+        vim.keymap.set("n", "<leader>db", "<cmd>!../../debug_build.sh<CR>", { desc = "darktable debug build" })
       end
     end,
   },

@@ -3,6 +3,13 @@ vim.pack.add({
 })
 
 require("oil").setup({
+  columns = {
+    "icon",
+    "permissions",
+    "size",
+    "mtime",
+  },
+
   view_options = {
     case_insensitive = true,
   },
