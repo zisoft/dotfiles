@@ -7,6 +7,17 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "agent": {
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": []
+  },
   "agent_servers": {
     "github-copilot-cli": {
       "type": "registry"
@@ -19,6 +30,7 @@
   "remove_trailing_whitespace_on_save": false,
   "format_on_save": "off",
   "project_panel": {
+    "dock": "left",
     "hide_gitignore": false
   },
   "indent_guides": {
@@ -58,6 +70,7 @@
     "active_encoding_button": "enabled",
   },
   "git_panel": {
+    "dock": "left",
     "tree_view": false,
   },
   "show_wrap_guides": false,

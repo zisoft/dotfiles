@@ -16,16 +16,10 @@ local statusline = function()
   local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
   local git           = MiniStatusline.section_git({ trunc_width = 40 })
   local diff          = MiniStatusline.section_diff({ trunc_width = 75 })
-  local filename      = MiniStatusline.section_filename({ trunc_width = 140 })
+  local filename      = '%-20f %-0.4r'
   local fileinfo      = MiniStatusline.section_fileinfo({ trunc_width = 40 })
   -- local location      = MiniStatusline.section_location({ trunc_width = 1000 })
   local location      = '%l│%2v (%P)'
-
-  -- cut off file size from fileinfo, don't need it
-  local last_space = fileinfo:match(".*()%s+")
-  if last_space then
-    fileinfo = fileinfo:sub(1, last_space - 1)
-  end
 
   local tab_icon = "󰌒 "
   local width = vim.bo.tabstop
