@@ -1,2 +1,4 @@
 *.bak*
+config/zsh/.zsh_sessions/
+config/zed/prompts/
 

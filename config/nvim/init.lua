@@ -16,7 +16,6 @@ require("plugins.debugging")
 require("plugins.todo-comments")
 require("plugins.snippets")
 require("plugins.smart-splits")
-require("plugins.opencode")
 
 require("plugins.blink")
 

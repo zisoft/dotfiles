@@ -15,3 +15,6 @@ alias sync_pics_synnas_philip='rsync -av --delete --delete-excluded --exclude-fr
 # alias sync_music_synnas='rsync -av --delete --delete-excluded --exclude-from='/Users/mario/.rsync_excludes' ~/Music/ -e "ssh -p 222" mario@zisoft-synnas:~//Music'
 # alias sync_music_synnas_philip='rsync -av --delete --delete-excluded --exclude-from='/Users/mario/.rsync_excludes' ~/Music/ -e "ssh -p 222" mario@philip.zisoft.de:~/Music'
 
+alias sync_zisoft_de='cd ~/grav/user && rsync -ruv --exclude-from deploy_excludes --delete . ssh-w0107c10@zisoft.de:/www/htdocs/w0107c10/zisoft/user'
+alias gravserve='cd ~/grav && php -S localhost:8000 system/router.php'
+
