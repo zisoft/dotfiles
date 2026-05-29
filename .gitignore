@@ -1,4 +1,5 @@
 *.bak*
 config/zsh/.zsh_sessions/
 config/zed/prompts/
+config/tmux/plugins/
 

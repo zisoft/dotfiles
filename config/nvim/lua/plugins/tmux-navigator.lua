@@ -2,7 +2,21 @@ vim.pack.add({
   { src = "https://github.com/christoomey/vim-tmux-navigator" },
 })
 
-vim.keymap.set("n", "<c-h>", "<cmd><c-u>TmuxNavigateLeft<cr>", { desc = "Tmux navigate left" })
-vim.keymap.set("n", "<c-j>", "<cmd><c-u>TmuxNavigateDown<cr>", { desc = "Tmux navigate down" })
-vim.keymap.set("n", "<c-k>", "<cmd><c-u>TmuxNavigateUp<cr>", { desc = "Tmux navigate up" })
-vim.keymap.set("n", "<c-l>", "<cmd><c-u>TmuxNavigateRight<cr>", { desc = "Tmux navigate right" })
+-- Reusable function to register keymaps in different contexts
+local function set_keymaps()
+  vim.keymap.set({ "n", "t" }, "<C-h>", "<cmd>TmuxNavigateLeft<cr>")
+  vim.keymap.set({ "n", "t" }, "<C-j>", "<cmd>TmuxNavigateDown<cr>")
+  vim.keymap.set({ "n", "t" }, "<C-k>", "<cmd>TmuxNavigateUp<cr>")
+  vim.keymap.set({ "n", "t" }, "<C-l>", "<cmd>TmuxNavigateRight<cr>")
+
+  print("keymaps set")
+
+end
+
+-- Register once globally
+set_keymaps()
+
+-- Re-register for terminal buffers to prevent literal command injection
+vim.api.nvim_create_autocmd("TermOpen", {
+  callback = set_keymaps,
+})
