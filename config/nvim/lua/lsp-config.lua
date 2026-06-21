@@ -2,9 +2,36 @@ vim.lsp.enable({
   "clangd",
   "cssls",
   "html",
+  "javascript",
+  "jsonls",
   "lua_ls",
+  "ts_ls",
   "yamlls",
 })
+
+-- Swift LSP (sourcekit)
+local sourcekit_config = {
+  cmd = { "xcrun", "sourcekit-lsp" },
+  filetypes = { "swift", "objc", "objcpp" },
+  root_markers = { ".git", "compile_commands.json", "Package.swift" },
+}
+
+vim.lsp.config("sourcekit", sourcekit_config)
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "swift", "objc", "objcpp" },
+  callback = function(args)
+    local root = vim.fs.root(args.buf, sourcekit_config.root_markers)
+    local client_config = vim.tbl_deep_extend("force", sourcekit_config, {
+      root_dir = root or vim.uv.cwd()
+    })
+
+    vim.lsp.start(client_config)
+  end,
+})
+
+vim.lsp.enable("sourcekit")
+
 
 -- vim.api.nvim_create_autocmd('LspAttach', {
 --   desc = "Enable auto-completion",
@@ -28,4 +55,3 @@ vim.lsp.enable({
 
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Lsp: Goto definition" })
 vim.keymap.set("n", "gf", vim.lsp.buf.format, { desc = "Lsp: Format buffer" })
-

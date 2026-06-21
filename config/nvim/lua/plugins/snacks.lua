@@ -7,6 +7,7 @@ require("snacks").setup({
   lazygit = { enabled = true, win = { position = "float" } },
   notifier = { enabled = true },
   input = { enabled = true },
+  scope = { enabled = true, blocks = { enabled = true } },
   -- terminal = { enabled = true, win = { position = "right" } },
 
   statuscolumn = {

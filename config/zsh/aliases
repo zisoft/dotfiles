@@ -9,7 +9,7 @@ alias brewup='brew update; brew upgrade; brew upgrade --cask; brew cleanup; brew
 
 alias sync_pics='rsync -av --delete --delete-excluded --exclude-from='/Users/mario/.rsync_excludes' ~/Pictures/ /Volumes/Marios/Pictures'
 alias sync_pics_synnas='rsync -av --delete --delete-excluded --exclude-from='/Users/mario/.rsync_excludes' ~/Pictures/ -e "ssh -p 222" mario@zisoft-synnas:~/Pictures'
-alias sync_pics_synnas_philip='rsync -av --delete --delete-excluded --exclude-from='/Users/mario/.rsync_excludes' ~/Pictures/ -e "ssh -p 222" mario@philip.zisoft.de:~/Pictures'
+alias sync_pics_synnas_philip='rsync -av --delete --delete-excluded --exclude-from='/Users/mario/.rsync_excludes' ~/Pictures/ -e "ssh -p 222" mario@nas.philipz.de:~/Pictures'
 
 # alias sync_music='rsync -av --delete --delete-excluded --exclude-from='/Users/mario/.rsync_excludes' ~/Music/ /Volumes/Marios/Music'
 # alias sync_music_synnas='rsync -av --delete --delete-excluded --exclude-from='/Users/mario/.rsync_excludes' ~/Music/ -e "ssh -p 222" mario@zisoft-synnas:~//Music'
