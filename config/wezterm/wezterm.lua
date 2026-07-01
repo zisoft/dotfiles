@@ -22,7 +22,7 @@ config.use_fancy_tab_bar = true
 config.switch_to_last_active_tab_when_closing_tab = true
 
 config.font = wezterm.font("JetBrains Mono")
-config.font_size = 13
+config.font_size = 12
 
 -- disable ligatures
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
