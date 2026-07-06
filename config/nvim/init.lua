@@ -5,7 +5,7 @@ require("user.keymaps")
 
 -- plugins
 require("plugins.catppuccin")
-require("plugins.nord")
+--require("plugins.nord")
 require("plugins.oil")
 require("plugins.treesitter")
 require("plugins.auto-session")

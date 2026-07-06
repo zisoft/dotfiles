@@ -17,7 +17,16 @@ local sourcekit_config = {
   root_markers = { ".git", "compile_commands.json", "Package.swift" },
   init_options = {
     indexUnitReaderPath = false,
-  }
+  },
+  settings = {
+    swift = {
+      formatting = {
+        indentWidth = 2,
+        tabWidth = 2,
+        useSpaces = true,
+      },
+    },
+  },
 }
 
 vim.lsp.config("sourcekit", sourcekit_config)

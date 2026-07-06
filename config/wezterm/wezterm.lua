@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 
 wezterm.on("gui-startup", function(cmd)
   -- set startup Window position
-  wezterm.mux.spawn_window(cmd or { position = { x = 1300, y = 200 } })
+  wezterm.mux.spawn_window(cmd or { position = { x = 900, y = 100 } })
 end)
 
 -- wezterm config
@@ -10,8 +10,8 @@ local config = wezterm.config_builder()
 
 config.term = "wezterm"
 
-config.initial_rows = 50
-config.initial_cols = 130
+config.initial_rows = 60
+config.initial_cols = 180
 
 config.window_close_confirmation = "NeverPrompt"
 config.window_decorations = "RESIZE"
