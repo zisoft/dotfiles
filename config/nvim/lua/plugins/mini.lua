@@ -2,12 +2,14 @@ vim.pack.add({
   { src = "https://github.com/echasnovski/mini.ai" },
   { src = "https://github.com/echasnovski/mini.surround" },
   { src = "https://github.com/echasnovski/mini.icons" },
+  { src = "https://github.com/echasnovski/mini.align" },
   { src = "https://github.com/echasnovski/mini.statusline" },
 })
 
-require("mini.ai").setup()
+-- require("mini.ai").setup()
 require("mini.surround").setup()
 require("mini.icons").setup()
+require("mini.align").setup()
 
 -- statusline
 local MiniStatusline = require("mini.statusline")
