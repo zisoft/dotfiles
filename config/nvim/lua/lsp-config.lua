@@ -6,7 +6,7 @@ vim.lsp.enable({
   "jsonls",
   "lua_ls",
   "marksman",
-  "ts_ls",
+  "tsgo",
   "yamlls",
 })
 
