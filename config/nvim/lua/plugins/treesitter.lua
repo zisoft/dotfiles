@@ -1,20 +1,34 @@
--- queries can be downloaded at https://github.com/nvim-treesitter/nvim-treesitter/tree/main/runtime/queries
--- and need to be copied to ~/.local/share/nvim/site/queries/
---
--- parsers can be found at https://github.com/orgs/tree-sitter/repositories?type=all
--- clone the repo for the language and build the parser with `tree-sitter build`, then
--- copy the shared library to ~/.local/share/nvim/site/parser/
+vim.pack.add {
+  { src = "https://github.com/romus204/tree-sitter-manager.nvim" }
+}
 
-vim.api.nvim_create_autocmd("FileType", {
-  callback = function(args)
-    local bufnr = args.buf
-    local ft = vim.bo[bufnr].filetype
+require("tree-sitter-manager").setup({
+  auto_install = true,
 
-    if ft == "" or vim.bo[bufnr].buftype == "nofile" then
-      return
-    end
+  -- Use built-in Neovim treesitter parsers
+  noauto_install = {
+    "lua", "markdown", "markdown_inline", "query", "vim", "vimdoc"
+  },
 
-    pcall(vim.treesitter.start, bufnr)
-  end,
+  ensure_installed = {
+    "cpp",
+    "css",
+    "ecma",
+    "git_config",
+    "gitcommit",
+    "gitignore",
+    "html",
+    "html_tags",
+    "javascript",
+    "json",
+    "jsx",
+    "python",
+    "scss",
+    "swift",
+    "tmux",
+    "toml",
+    "twig",
+    "typescript",
+    "yaml"
+  }
 })
-
