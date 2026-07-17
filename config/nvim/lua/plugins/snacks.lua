@@ -61,12 +61,10 @@ vim.keymap.set("n", "<leader>so", function() Snacks.picker.lsp_symbols() end, { 
 vim.keymap.set("n", "<leader>sr", function() Snacks.picker.lsp_references() end, { desc = "LSP references" })
 
 -- gh cli
-vim.keymap.set("n", "<leader>ghi", function() Snacks.picker.gh_issue() end, { desc = "GitHub Issues (open)" })
-vim.keymap.set("n", "<leader>ghI", function() Snacks.picker.gh_issue({ state = "all" }) end,
-  { desc = "GitHub Issues (all)" })
-vim.keymap.set("n", "<leader>ghp", function() Snacks.picker.gh_pr() end, { desc = "GitHub Pull Requests (open)" })
-vim.keymap.set("n", "<leader>ghP", function() Snacks.picker.gh_pr({ state = "all" }) end,
-  { desc = "GitHub Pull Requests (all)" })
+-- vim.keymap.set("n", "<leader>ghi", function() Snacks.picker.gh_issue() end, { desc = "GitHub Issues (open)" })
+-- vim.keymap.set("n", "<leader>ghI", function() Snacks.picker.gh_issue({ state = "all" }) end, { desc = "GitHub Issues (all)" })
+-- vim.keymap.set("n", "<leader>ghp", function() Snacks.picker.gh_pr() end, { desc = "GitHub Pull Requests (open)" })
+-- vim.keymap.set("n", "<leader>ghP", function() Snacks.picker.gh_pr({ state = "all" }) end, { desc = "GitHub Pull Requests (all)" })
 
 -- lazygit
 vim.keymap.set("n", "<leader>lg", function() Snacks.lazygit() end, { desc = "LazyGit" })
