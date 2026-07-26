@@ -9,9 +9,9 @@ local cmp = require('blink.cmp')
 cmp.build():pwait()
 
 cmp.setup({
+
   keymap = {
-    preset = "super-tab",
-    -- preset = "default",
+    preset = "default",
   },
 
   cmdline = {
