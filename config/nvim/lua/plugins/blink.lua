@@ -1,7 +1,7 @@
 vim.pack.add({
   "https://github.com/saghen/blink.lib",
   "https://github.com/saghen/blink.cmp",
-  { src = 'https://github.com/saghen/blink.pairs', version = vim.version.range('*') },
+  -- { src = 'https://github.com/saghen/blink.pairs', version = vim.version.range('*') },
 })
 
 -- completion
@@ -23,7 +23,7 @@ cmp.setup({
 
   completion = {
     accept = {
-      -- auto_brackets = { enabled = false },
+      auto_brackets = { enabled = false },
     },
   },
 
@@ -37,7 +37,7 @@ cmp.setup({
 })
 
 -- pairs
-local pairs = require('blink.pairs')
-pairs.build():pwait(60000)
-
-pairs.setup()
+-- local pairs = require('blink.pairs')
+-- pairs.build():pwait(60000)
+--
+-- pairs.setup()

@@ -28,14 +28,14 @@
 [pager]
 	branch = false
 
-[interactive]
-  diffFilter = delta --color-only
-
-[delta]
-  line-numbers = true
-  navigate = true  # use n and N to move between diff sections
-  dark = true      # or `light = true`, or omit for auto-detection
-  features = catppuccin-frappe
+; [interactive]
+;   diffFilter = delta --color-only
+;
+; [delta]
+;   line-numbers = true
+;   navigate = true  # use n and N to move between diff sections
+;   dark = true      # or `light = true`, or omit for auto-detection
+;   features = catppuccin-frappe
 
 [diff]
   tool = default-difftool

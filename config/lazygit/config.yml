@@ -1,7 +1,7 @@
 git:
-  pagers:
+  diffRenderers:
     - colorArg: always
-      pager: delta --paging=never --line-numbers
+      command: delta --paging=never --line-numbers
 gui:
   theme:
     # catppuccin frappe with blue accent

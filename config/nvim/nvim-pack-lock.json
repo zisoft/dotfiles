@@ -5,24 +5,19 @@
       "src": "https://github.com/L3MON4D3/LuaSnip"
     },
     "auto-session": {
-      "rev": "6cde3874a9283c2db55627acca5f28e4fa402320",
+      "rev": "c8e6139a2e52a38101fecaba6014d7dd75489044",
       "src": "https://github.com/rmagatti/auto-session"
     },
     "blink.cmp": {
-      "rev": "1e4a8fb9708bbaa35addaa198638feed622d56ae",
+      "rev": "e116ff9c5c1c2ed6bcdb2e0a6e547099876a8116",
       "src": "https://github.com/saghen/blink.cmp"
     },
     "blink.lib": {
-      "rev": "5876dd95deeb70aadbe9f1c0b7117a135061cdac",
+      "rev": "c8fdc12c8a2fab6cf786dd7141a283f8079f902b",
       "src": "https://github.com/saghen/blink.lib"
     },
-    "blink.pairs": {
-      "rev": "aad9046bc4670dc91301cd62a6948feb36c55f4a",
-      "src": "https://github.com/saghen/blink.pairs",
-      "version": ">=0.0.0"
-    },
     "gitsigns.nvim": {
-      "rev": "31d6fb2d618bca1482b9f274751ead5f03461408",
+      "rev": "5be654f2232c10ddcad19c1607a67b6b4b78fc29",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "mini.align": {
@@ -41,12 +36,8 @@
       "rev": "8d5d0c5aa92449368ac251e85451d79d8f69d296",
       "src": "https://github.com/echasnovski/mini.surround"
     },
-    "nord.nvim": {
-      "rev": "87394d4fc35c901bbe38326a78d31ab1ead826b6",
-      "src": "https://github.com/gbprod/nord.nvim"
-    },
     "nvim": {
-      "rev": "79e2049a0fdf7ec840f8463fe1d962c94493196b",
+      "rev": "edefef779ab08ce1a4a404713e3012b0d202bd35",
       "src": "https://github.com/catppuccin/nvim"
     },
     "nvim-dap": {
@@ -74,7 +65,7 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "smart-splits.nvim": {
-      "rev": "32f67888ac71942442fdab3819864a10449dfc41",
+      "rev": "289971cfdbc7f7b1c91670a228b239d870130af7",
       "src": "https://github.com/mrjones2014/smart-splits.nvim"
     },
     "snacks.nvim": {
@@ -86,7 +77,7 @@
       "src": "https://github.com/folke/todo-comments.nvim"
     },
     "tree-sitter-manager.nvim": {
-      "rev": "09e3a321eea8100cacd2e759c3a6c9d350295fab",
+      "rev": "9dc4ffc4fb010e7abb976a92360c2c5a7d324c15",
       "src": "https://github.com/romus204/tree-sitter-manager.nvim"
     }
   }

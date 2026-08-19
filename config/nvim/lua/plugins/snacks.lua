@@ -69,6 +69,10 @@ vim.keymap.set("n", "<leader>sr", function() Snacks.picker.lsp_references() end,
 -- lazygit
 vim.keymap.set("n", "<leader>lg", function() Snacks.lazygit() end, { desc = "LazyGit" })
 
+-- Git
+vim.keymap.set("n", "<leader>gl", function() Snacks.picker.git_log() end, { desc = "Git log" })
+vim.keymap.set("n", "<leader>gd", function() Snacks.picker.git_diff() end, { desc = "Git diff" })
+
 -- Misc
 vim.keymap.set("n", "<leader>bd", function() Snacks.bufdelete() end, { desc = "Delete buffer" })
 

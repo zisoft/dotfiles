@@ -61,6 +61,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:cd:*' fzf-preview 'ls --color $realpath'
 eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+eval "$(atuin init zsh)"
 
 # oh-my-posh prompt
 eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/ohmyposh/mario.json)"
