@@ -11,4 +11,6 @@ export LANG=en_US.UTF-8
 
 export EDITOR=nvim
 
-
+# lldb
+# Unterdrücke macOS-System-Meldungen beim Debuggen
+export OS_ACTIVITY_MODE=disable 

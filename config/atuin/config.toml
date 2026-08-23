@@ -205,7 +205,7 @@ keymap_mode = "vim-normal"
 
 ## Set this to true and Atuin will minimize motion in the UI - timers will not update live, etc.
 ## Alternatively, set env NO_MOTION=true
-# prefers_reduced_motion = false
+prefers_reduced_motion = true
 
 ## Defaults to true. Configures whether to store commands that failed (those with non-zero exit status) or not.
 # store_failed = true
