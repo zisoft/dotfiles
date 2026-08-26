@@ -9,7 +9,7 @@
       "src": "https://github.com/rmagatti/auto-session"
     },
     "blink.cmp": {
-      "rev": "d50cfb205c677143d1f036a4749e21c1c8c6bc85",
+      "rev": "101d71861f6a012f2be80e4100720874330d86aa",
       "src": "https://github.com/saghen/blink.cmp"
     },
     "blink.lib": {
@@ -77,7 +77,7 @@
       "src": "https://github.com/folke/todo-comments.nvim"
     },
     "tree-sitter-manager.nvim": {
-      "rev": "9dc4ffc4fb010e7abb976a92360c2c5a7d324c15",
+      "rev": "023590c8f068788a0513a4409bf37ff7f9d1deff",
       "src": "https://github.com/romus204/tree-sitter-manager.nvim"
     }
   }
