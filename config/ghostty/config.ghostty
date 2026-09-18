@@ -1,0 +1,13 @@
+macos-titlebar-style = transparent
+font-size = 12
+font-feature = -dlig
+font-feature = -liga
+font-feature = -calt
+theme = Catppuccin Frappe
+window-width = 180
+window-height = 60
+window-position-x = 450
+window-position-y = 20
+confirm-close-surface = false
+macos-option-as-alt = left
+
