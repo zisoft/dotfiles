@@ -110,8 +110,3 @@ fi
 
 export GSETTINGS_SCHEMA_DIR=$(brew --prefix)/share/glib-2.0/schemas/
 
-# start tmux session
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  tmux new-session -A -s main
-fi
-

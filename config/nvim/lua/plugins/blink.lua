@@ -9,6 +9,8 @@ local cmp = require('blink.cmp')
 cmp.build():pwait()
 
 cmp.setup({
+  -- fuzzy = { implementation = "prefer_rust_with_warning" },
+  fuzzy = { implementation = "lua" },
 
   keymap = {
     preset = "default",

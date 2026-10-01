@@ -16,6 +16,8 @@ config.initial_cols = 180
 config.window_close_confirmation = "NeverPrompt"
 config.window_decorations = "RESIZE"
 
+config.quit_when_all_windows_are_closed = true
+
 config.enable_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = true
 config.use_fancy_tab_bar = true
@@ -29,15 +31,14 @@ config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 
 config.color_scheme = "Catppuccin Frappe"
 
-config.send_composed_key_when_left_alt_is_pressed = true
+config.send_composed_key_when_left_alt_is_pressed = false
 
-config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 }
+-- config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 }
 
-
-local function is_vim(pane)
+-- local function is_vim(pane)
   -- this is set by the plugin, and unset on ExitPre in Neovim
-  return pane:get_user_vars().IS_NVIM == 'true'
-end
+  -- return pane:get_user_vars().IS_NVIM == 'true'
+-- end
 
 -- local direction_keys = {
 --   h = 'Left',
