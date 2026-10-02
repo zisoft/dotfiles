@@ -1,4 +1,6 @@
 macos-titlebar-style = transparent
+macos-titlebar-proxy-icon = hidden
+title = " "
 font-size = 12
 font-feature = -dlig
 font-feature = -liga
@@ -10,4 +12,5 @@ window-position-x = 450
 window-position-y = 20
 confirm-close-surface = false
 macos-option-as-alt = left
+quit-after-last-window-closed = true
 
