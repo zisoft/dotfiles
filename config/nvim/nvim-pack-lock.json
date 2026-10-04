@@ -8,6 +8,10 @@
       "rev": "02a5588f677970a9bc784115c62bef9e5855499b",
       "src": "https://github.com/rmagatti/auto-session"
     },
+    "backend-ghostty": {
+      "rev": "6f5198018c417b88a9a9001c566f07795d48074f",
+      "src": "https://github.com/smart-splits-nvim/backend-ghostty"
+    },
     "blink.cmp": {
       "rev": "8219b58f1c11a2fb1644d3c7116c509fa8348ec0",
       "src": "https://github.com/saghen/blink.cmp"
@@ -33,7 +37,7 @@
       "src": "https://github.com/echasnovski/mini.statusline"
     },
     "mini.surround": {
-      "rev": "33a2ebe5df8eb4751828fcba133e18ed0fbbdfab",
+      "rev": "72feeaa0f984646efde875cc775a97b6f8a8be9b",
       "src": "https://github.com/echasnovski/mini.surround"
     },
     "nvim": {
