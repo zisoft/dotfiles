@@ -17,11 +17,11 @@ font-feature = -dlig
 font-feature = -liga
 font-feature = -calt
 
-macos-option-as-alt = left
-cursor-style = block
 cursor-style-blink = false
-shell-integration-features = no-cursor
+
 unfocused-split-opacity = 1
+
+macos-option-as-alt = left
 
 # tmux keybindings for splits
 keybind = ctrl+b>shift+5=new_split:right
