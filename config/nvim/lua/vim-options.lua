@@ -38,3 +38,26 @@ vim.o.foldlevelstart = 99
 
 vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#737994" })
 vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#737994" })
+
+-- OSC 7: send CWD to terminal
+local function emit_osc7()
+  local cwd = vim.uv.cwd()
+  if not cwd then
+    return
+  end
+  local encoded = cwd:gsub("([^%w/%-%._~])", function(c)
+    return string.format("%%%02X", string.byte(c))
+  end)
+  io.stdout:write(string.format("\027]7;file://%s%s\027\\", vim.uv.os_gethostname(), encoded))
+end
+
+vim.api.nvim_create_autocmd({ "DirChanged", "VimEnter" }, {
+  callback = emit_osc7,
+})
+
+vim.api.nvim_create_autocmd("VimLeave", {
+  callback = function()
+    vim.fn.chdir(vim.env.HOME)
+  end,
+})
+
