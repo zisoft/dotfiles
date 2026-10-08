@@ -4,24 +4,25 @@ vim.pack.add({
 })
 
 require("smart-splits").setup({
-  default_amount = 3,
-  at_edge = "stop",
+  mux = {
+    backend = "smart-splits-backend-ghostty",
+  },
+  move = {
+    at_edge = "stop",
+  }
 })
 
-require('ghostty-smart-splits').setup({
-  key_table = 'nvim'
-})
+local splits = require("smart-splits")
 
 -- moving between splits
-vim.keymap.set({'n', 't'}, '<C-h>', require('smart-splits').move_cursor_left)
-vim.keymap.set({'n', 't'}, '<C-j>', require('smart-splits').move_cursor_down)
-vim.keymap.set({'n', 't'}, '<C-k>', require('smart-splits').move_cursor_up)
-vim.keymap.set({'n', 't'}, '<C-l>', require('smart-splits').move_cursor_right)
-vim.keymap.set({'n', 't'}, '<C-\\>', require('smart-splits').move_cursor_previous)
+vim.keymap.set({'n', 't'}, '<C-h>', splits.move_cursor_left)
+vim.keymap.set({'n', 't'}, '<C-j>', splits.move_cursor_down)
+vim.keymap.set({'n', 't'}, '<C-k>', splits.move_cursor_up)
+vim.keymap.set({'n', 't'}, '<C-l>', splits.move_cursor_right)
 
 -- resizing splits
-vim.keymap.set({'n', 't'}, '<M-h>', require('smart-splits').resize_left)
-vim.keymap.set({'n', 't'}, '<M-j>', require('smart-splits').resize_down)
-vim.keymap.set({'n', 't'}, '<M-k>', require('smart-splits').resize_up)
-vim.keymap.set({'n', 't'}, '<M-l>', require('smart-splits').resize_right)
+vim.keymap.set({'n', 't'}, '<M-h>', splits.resize_left)
+vim.keymap.set({'n', 't'}, '<M-j>', splits.resize_down)
+vim.keymap.set({'n', 't'}, '<M-k>', splits.resize_up)
+vim.keymap.set({'n', 't'}, '<M-l>', splits.resize_right)
 

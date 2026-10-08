@@ -1,4 +1,6 @@
-macos-titlebar-style = transparent
+auto-update = check
+
+macos-titlebar-style = tabs
 macos-titlebar-proxy-icon = hidden
 title = " "
 

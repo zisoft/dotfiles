@@ -9,7 +9,7 @@
       "src": "https://github.com/rmagatti/auto-session"
     },
     "backend-ghostty": {
-      "rev": "6f5198018c417b88a9a9001c566f07795d48074f",
+      "rev": "85822a4cccb20229c7cf8fcbca7587a3d174c625",
       "src": "https://github.com/smart-splits-nvim/backend-ghostty"
     },
     "blink.cmp": {
@@ -69,7 +69,7 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "smart-splits.nvim": {
-      "rev": "ec76708f1617ef9e2ac353357fe52d2c997a0f06",
+      "rev": "527441d1ccbaea9505c0727bbf941a153af67589",
       "src": "https://github.com/mrjones2014/smart-splits.nvim"
     },
     "snacks.nvim": {
