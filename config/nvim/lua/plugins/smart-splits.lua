@@ -1,11 +1,13 @@
 vim.pack.add({
   "https://github.com/mrjones2014/smart-splits.nvim",
-  'https://github.com/smart-splits-nvim/backend-ghostty'
+  "https://github.com/smart-splits-nvim/backend-tmux",
+  -- "https://github.com/smart-splits-nvim/backend-ghostty",
 })
 
 require("smart-splits").setup({
   mux = {
-    backend = "smart-splits-backend-ghostty",
+    backend = "smart-splits-backend-tmux",
+    -- backend = "smart-splits-backend-ghostty",
   },
   move = {
     at_edge = "stop",

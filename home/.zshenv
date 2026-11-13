@@ -3,6 +3,8 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
+export XDG_DATA_DIRS="/opt/homebrew/share:/usr/local/share:${XDG_DATA_DIRS}"
+
 export ZDOTDIR=$HOME/.config/zsh
 
 # Language settings
