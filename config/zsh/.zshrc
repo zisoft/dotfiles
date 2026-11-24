@@ -110,5 +110,8 @@ fi
 
 export GSETTINGS_SCHEMA_DIR=$(brew --prefix)/share/glib-2.0/schemas/
 
+# oMLX
+export PATH=$PATH:~/.omlx/bin
+
 # slang test
 export PATH=$PATH:~/slang-2026.20-macos-aarch64/bin

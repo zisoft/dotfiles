@@ -1,12 +1,10 @@
 vim.pack.add({
-  -- { src = "https://github.com/echasnovski/mini.ai" },
   { src = "https://github.com/echasnovski/mini.surround" },
   { src = "https://github.com/echasnovski/mini.icons" },
   { src = "https://github.com/echasnovski/mini.align" },
   { src = "https://github.com/echasnovski/mini.statusline" },
 })
 
--- require("mini.ai").setup()
 require("mini.surround").setup()
 require("mini.icons").setup()
 require("mini.align").setup()
@@ -26,8 +24,10 @@ local function shorten_path(path, max_len)
     return path
   end
 
+  local leading_slash = path:sub(1, 1) == "/" and "/" or ""
+
   local parts = {}
-  for segment in path:gmatch("[^/]+") do
+  for segment in path:gmatch("[^/\\]+") do
     table.insert(parts, segment)
   end
 
@@ -50,22 +50,15 @@ local function shorten_path(path, max_len)
     end
   end
 
-  return table.concat(result, "/")
-end
-
--- Estimates the display width (columns) of a string. mini.statusline section
--- functions return plain text (highlights are applied separately via hl
--- groups), so we can measure directly. strdisplaywidth also accounts for
--- multibyte/wide characters.
-local function display_width(s)
-  return vim.fn.strdisplaywidth(s)
+  return leading_slash .. table.concat(result, "/")
 end
 
 local statusline = function()
   local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
-  local git           = MiniStatusline.section_git({ trunc_width = 40 })
+  -- window < 80 cols => section_git returns '' (git disappears entirely)
+  local git           = MiniStatusline.section_git({ trunc_width = 120 })
   local diff          = MiniStatusline.section_diff({ trunc_width = 75 })
-  local fileinfo      = MiniStatusline.section_fileinfo({ trunc_width = 40 })
+  local fileinfo      = MiniStatusline.section_fileinfo({ trunc_width = 100 })
   -- local location      = MiniStatusline.section_location({ trunc_width = 1000 })
   local location      = '%l│%2v (%P)'
 
@@ -77,20 +70,10 @@ local statusline = function()
   end
   local indent = tab_icon .. width
 
-  -- Dynamically determine the width available for the filename:
-  -- current window width minus all other sections. With vertical splits,
-  -- winwidth shrinks and the path gets shorter automatically.
-  -- 'location' contains unexpanded %-codes, so we reserve a fixed buffer.
-  local LOCATION_RESERVE = 16 -- approx. width of e.g. "123│45 (67%)"
-  local BUFFER           = 4  -- small safety margin
-  local MIN_LEN          = 12 -- never shorter than this, otherwise unreadable
-
-  local used = display_width(mode) + display_width(git) + display_width(diff)
-             + display_width(indent) + display_width(fileinfo) + LOCATION_RESERVE
-  local max_len = vim.api.nvim_win_get_width(0) - used - BUFFER
-  if max_len < MIN_LEN then
-    max_len = MIN_LEN
-  end
+  -- Same width heuristic as all other sections (is_truncated): only
+  -- shorten the path in narrow windows, otherwise give it plenty of room.
+  -- Keep the threshold in sync with section_git's trunc_width.
+  local max_len = MiniStatusline.is_truncated(120) and 20 or 45
 
   local filename = shorten_path(vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ':~'), max_len)
 
@@ -113,4 +96,3 @@ MiniStatusline.setup({
   },
   use_icons = true
 })
-
